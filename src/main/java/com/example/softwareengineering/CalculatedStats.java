@@ -1,5 +1,7 @@
 package com.example.softwareengineering;
 
+//As I understand it, the CalculatedStats are the stats calculated from an individual player, whether that be pitcher or hitter
+//I have each player containing a CalculatedStats object, where their stats can be calculated and then fetched
 public class CalculatedStats
 {
     double statAverage, statOBP, statSLG, statOPS, statERA;
@@ -44,6 +46,7 @@ public class CalculatedStats
         this.statERA = statERA;
     }
 
+    //where the actual calculations take place, will implement further in the future
     public void calculateAverage()
     {
 

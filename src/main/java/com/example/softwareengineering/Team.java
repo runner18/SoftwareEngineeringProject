@@ -5,7 +5,7 @@ public class Team {
     private String name, captainName, coachName;
     private int teamSize;
     private TeamStats teamStats;
-    List<Person> players = new ArrayList<Person>();
+    List<Person> players = new ArrayList<Person>(); // a list of all the players on the team, can be added to
 
     private double avgAverage, avgOBP, avgSLG, avgOPS, avgERA;
 
@@ -62,30 +62,9 @@ public class Team {
         this.coachName = coachName;
     }
 
-
-
-    public double getAvgAverage()
+    public void calculateTeamStats()
     {
-        return avgAverage;
-    }
+        teamStats.setPlayers(players);
 
-    public double getAvgOBP()
-    {
-        return avgOBP;
-    }
-
-    public double getAvgSLG()
-    {
-        return avgSLG;
-    }
-
-    public double getAvgOPS()
-    {
-        return avgOPS;
-    }
-
-    public double getAvgERA()
-    {
-        return avgERA;
     }
 }

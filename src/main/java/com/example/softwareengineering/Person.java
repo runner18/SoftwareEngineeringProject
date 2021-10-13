@@ -1,5 +1,6 @@
 package com.example.softwareengineering;
 
+//the abstract class fro a team player, either a hitte ror pitcher are teh child classes
 abstract class Person {
     private String personName, personTeam;
 
