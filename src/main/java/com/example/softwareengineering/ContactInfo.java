@@ -4,6 +4,11 @@ public class ContactInfo {
     String email;
     String phone;
 
+    public ContactInfo(String email, String phone) {
+        this.email = email;
+        this.phone = phone;
+    }
+
     public String getEmail() {
         return email;
     }

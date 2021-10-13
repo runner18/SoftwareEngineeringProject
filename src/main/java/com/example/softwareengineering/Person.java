@@ -1,18 +1,20 @@
 package com.example.softwareengineering;
 
 abstract class Person {
-    String personName;
-    String personTeam;
+    private String personName, personTeam;
 
-    public String getPersonName() {
+    public String getPersonName()
+    {
         return personName;
     }
 
-    public String getPersonTeam() {
+    public String getPersonTeam()
+    {
         return personTeam;
     }
 
-    public String getPersonTitle() {
+    public String getPersonTitle()
+    {
         return personTitle;
     }
 

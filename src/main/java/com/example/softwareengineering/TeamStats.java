@@ -1,29 +1,30 @@
 package com.example.softwareengineering;
 
 public class TeamStats {
-    double avgAverage;
-    double avgOBP;
-    double avgSLG;
-    double avgOPS;
-    double avgERA;
+    private double avgAverage, avgOBP, avgSLG, avgOPS, avgERA;
 
-    public double getAvgAverage() {
+    public double getAvgAverage()
+    {
         return avgAverage;
     }
 
-    public double getAvgOBP() {
+    public double getAvgOBP()
+    {
         return avgOBP;
     }
 
-    public double getAvgSLG() {
+    public double getAvgSLG()
+    {
         return avgSLG;
     }
 
-    public double getAvgOPS() {
+    public double getAvgOPS()
+    {
         return avgOPS;
     }
 
-    public double getAvgERA() {
+    public double getAvgERA()
+    {
         return avgERA;
     }
 }
