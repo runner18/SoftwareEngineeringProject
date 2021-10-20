@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox id="vbox" prefHeight="325.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.softwareengineering.HelloController">
+<VBox id="vbox" prefHeight="375.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SoftwareEngineeringProject.HelloController">
     <MenuBar fx:id="menuBar">
         <menus>
             <Menu text="Data Manager">
@@ -17,6 +17,7 @@
                 <items>
                     <MenuItem text="Authors" />
                     <MenuItem text="Version" />
+                    <MenuItem text="Instuctions" />
                 </items>
             </Menu>
         </menus>
@@ -25,9 +26,9 @@
         <items>
             <AnchorPane maxHeight="250.0" maxWidth="150.0" minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="100.0">
                 <children>
-                    <TitledPane animated="false" collapsible="false" prefHeight="160.0" prefWidth="150.0" text="Teams" textAlignment="CENTER">
+                    <TitledPane fx:id="tblDisplayTeams" animated="false" collapsible="false" prefHeight="160.0" prefWidth="150.0" text="Teams" textAlignment="CENTER">
                         <content>
-                            <AnchorPane minHeight="250.0" minWidth="0.0" prefHeight="250.0" prefWidth="148.0" />
+                            <AnchorPane fx:id="tblDisplayTeam" minHeight="250.0" minWidth="0.0" prefHeight="250.0" prefWidth="148.0" />
                         </content>
                         <font>
                             <Font name="System Bold" size="12.0" />
@@ -37,14 +38,14 @@
             </AnchorPane>
             <AnchorPane minHeight="250.0" minWidth="0.0" prefHeight="250.0" prefWidth="100.0">
                 <children>
-                    <SplitPane layoutX="-1.0" layoutY="-11.0" orientation="VERTICAL" prefHeight="262.0" prefWidth="542.0">
+                    <SplitPane layoutX="-1.0" layoutY="-11.0" orientation="VERTICAL" prefHeight="262.0" prefWidth="640.0">
                         <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="260.0" prefWidth="642.0">
                                 <children>
-                                    <TableView layoutX="-4.0" layoutY="138.0" prefHeight="122.0" prefWidth="548.0">
+                                    <TableView fx:id="tblDisplayPitcher" layoutX="-4.0" layoutY="138.0" prefHeight="122.0" prefWidth="642.0">
                                         <columns>
-                                            <TableColumn prefWidth="75" text="Name" />
-                                            <TableColumn prefWidth="65" text="Position" />
+                                            <TableColumn prefWidth="111" text="Name" />
+                                            <TableColumn prefWidth="77" text="Position" />
                                             <TableColumn prefWidth="40" text="H" />
                                             <TableColumn prefWidth="40" text="2B" />
                                             <TableColumn prefWidth="40" text="3B" />
@@ -60,10 +61,10 @@
                                 </children></AnchorPane>
                         </items>
                     </SplitPane>
-                    <TableView layoutX="-1.0" maxHeight="250.0" minHeight="122.0" prefHeight="130.0" prefWidth="542.0">
+                    <TableView fx:id="tblDisplayHItter" layoutX="-1.0" maxHeight="250.0" minHeight="122.0" prefHeight="130.0" prefWidth="642.0">
                         <columns>
-                            <TableColumn prefWidth="75" text="Name" />
-                            <TableColumn prefWidth="65" text="Position" />
+                            <TableColumn prefWidth="111" text="Name" />
+                            <TableColumn prefWidth="77" text="Position" />
                             <TableColumn prefWidth="40" text="IP" />
                             <TableColumn prefWidth="40" text="W" />
                             <TableColumn prefWidth="40" text="L" />
@@ -81,18 +82,36 @@
     </SplitPane>
     <ToolBar prefHeight="52.0" prefWidth="650.0">
         <items>
-            <ComboBox prefHeight="25.0" prefWidth="111.0" promptText="Select Team" />
-            <ComboBox layoutX="10.0" layoutY="16.0" prefHeight="25.0" prefWidth="94.0" promptText="Position" />
-            <TextField prefHeight="25.0" prefWidth="73.0" promptText="Name" />
-            <TextField prefWidth="40" />
-            <TextField prefWidth="40" />
-            <TextField prefWidth="40" />
-            <TextField prefWidth="40" />
-            <TextField prefWidth="40" />
-            <TextField prefWidth="40" />
-            <TextField prefWidth="40" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Submit" />
+            <ComboBox fx:id="btnInsertTeam" prefHeight="25.0" prefWidth="111.0" promptText="Select Team" />
+            <TextField fx:id="btnInsertName" prefHeight="25.0" prefWidth="73.0" promptText="Name" />
+            <TextField fx:id="txtInsertStatOne" prefWidth="40" />
+            <TextField fx:id="txtInsertStatTwo" prefWidth="40" />
+            <TextField fx:id="txtInsertStatThree" prefWidth="40" />
+            <TextField fx:id="txtInsertStatFour" prefWidth="40" />
+            <TextField fx:id="txtInsertStatFive" prefWidth="40" />
+            <TextField fx:id="txtInsertStatSix" prefWidth="40" />
+            <TextField fx:id="txtInsertStatSeven" prefWidth="40" />
+            <TextField fx:id="txtInsertStatEight" prefWidth="40" />
+            <TextField fx:id="txtInsertStatNine" prefWidth="40" />
+            <TextField fx:id="txtInsertStatTen" prefWidth="40" />
+            <Button fx:id="btnInsertSubmit" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Submit HITTER" />
         </items>
     </ToolBar>
-    <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+    <ToolBar layoutX="10.0" layoutY="287.0" prefHeight="52.0" prefWidth="650.0">
+        <items>
+            <ComboBox fx:id="btnComparePlayerOne" prefHeight="25.0" prefWidth="111.0" promptText="Player One" />
+            <ComboBox fx:id="btnComparePlayerTwo" layoutX="10.0" layoutY="16.0" prefHeight="25.0" prefWidth="111.0" promptText="Player Two" />
+            <ComboBox fx:id="btnComparePosition" layoutX="125.0" layoutY="17.0" prefHeight="25.0" prefWidth="94.0" promptText="Position" />
+            <TextField fx:id="lblCompareStatOne" prefWidth="40" />
+            <TextField fx:id="lblCompareStatTwo" prefWidth="40" />
+            <TextField fx:id="lblCompareStatThree" prefWidth="40" />
+            <TextField fx:id="lblCompareStatFour" prefWidth="40" />
+            <TextField fx:id="lblCompareStatFive" prefWidth="40" />
+            <TextField fx:id="lblCompareStatSix" prefWidth="40" />
+            <TextField fx:id="lblCompareStatSeven" prefWidth="40" />
+            <TextField fx:id="lblCompareStatEight" prefWidth="40" />
+            <TextField fx:id="lblCompareStatNine" prefWidth="40" />
+            <TextField fx:id="lblCompareStatTen" prefWidth="40" />
+        </items>
+    </ToolBar>
 </VBox>
