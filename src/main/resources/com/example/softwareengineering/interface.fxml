@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox id="vbox" prefHeight="375.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.softwareengineering.HelloController">
+<VBox id="vbox" prefHeight="375.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.softwareengineering.Controller">
     <MenuBar fx:id="btnMenuBar">
         <menus>
             <Menu fx:id="btnMenuBarDataManager" text="Data Manager">
@@ -61,7 +61,7 @@
                                 </children></AnchorPane>
                         </items>
                     </SplitPane>
-                    <TableView fx:id="tblDisplayHItter" layoutX="-1.0" maxHeight="250.0" minHeight="122.0" prefHeight="130.0" prefWidth="642.0">
+                    <TableView fx:id="tblDisplayHitter" layoutX="-1.0" maxHeight="250.0" minHeight="122.0" prefHeight="130.0" prefWidth="642.0">
                         <columns>
                             <TableColumn fx:id="tblDisplayHitterName" prefWidth="163.0" text="Name" />
                             <TableColumn fx:id="tblDisplayHitterPosition" prefWidth="77" text="Position" />
@@ -83,7 +83,7 @@
     <ToolBar prefHeight="52.0" prefWidth="650.0">
         <items>
             <ComboBox fx:id="btnInsertTeam" prefHeight="25.0" prefWidth="111.0" promptText="Select Team" />
-            <TextField fx:id="btnInsertName" prefHeight="25.0" prefWidth="90.0" promptText="Name" />
+            <TextField fx:id="txtInsertName" prefHeight="25.0" prefWidth="90.0" promptText="Name" />
             <TextField fx:id="txtInsertStatOne" prefWidth="40" />
             <TextField fx:id="txtInsertStatTwo" prefWidth="40" />
             <TextField fx:id="txtInsertStatThree" prefWidth="40" />
@@ -102,16 +102,16 @@
             <ComboBox fx:id="btnComparePlayerOne" prefHeight="25.0" prefWidth="111.0" promptText="Player One" />
             <ComboBox fx:id="btnComparePlayerTwo" layoutX="10.0" layoutY="16.0" prefHeight="25.0" prefWidth="111.0" promptText="Player Two" />
             <ComboBox fx:id="btnComparePosition" layoutX="125.0" layoutY="17.0" prefHeight="25.0" prefWidth="111.0" promptText="Position" />
-            <TextField fx:id="lblCompareStatOne" prefWidth="40" />
-            <TextField fx:id="lblCompareStatTwo" prefWidth="40" />
-            <TextField fx:id="lblCompareStatThree" prefWidth="40" />
-            <TextField fx:id="lblCompareStatFour" prefWidth="40" />
-            <TextField fx:id="lblCompareStatFive" prefWidth="40" />
-            <TextField fx:id="lblCompareStatSix" prefWidth="40" />
-            <TextField fx:id="lblCompareStatSeven" prefWidth="40" />
-            <TextField fx:id="lblCompareStatEight" prefWidth="40" />
-            <TextField fx:id="lblCompareStatNine" prefWidth="40" />
-            <TextField fx:id="lblCompareStatTen" prefWidth="40" />
+            <TextField fx:id="lblCompareStatOne" editable="false" prefWidth="40" />
+            <TextField fx:id="lblCompareStatTwo" editable="false" prefWidth="40" />
+            <TextField fx:id="lblCompareStatThree" editable="false" prefWidth="40" />
+            <TextField fx:id="lblCompareStatFour" editable="false" prefWidth="40" />
+            <TextField fx:id="lblCompareStatFive" editable="false" prefWidth="40" />
+            <TextField fx:id="lblCompareStatSix" editable="false" prefWidth="40" />
+            <TextField fx:id="lblCompareStatSeven" editable="false" prefWidth="40" />
+            <TextField fx:id="lblCompareStatEight" editable="false" prefWidth="40" />
+            <TextField fx:id="lblCompareStatNine" editable="false" prefWidth="40" />
+            <TextField fx:id="lblCompareStatTen" editable="false" prefWidth="40" />
         </items>
     </ToolBar>
 </VBox>
