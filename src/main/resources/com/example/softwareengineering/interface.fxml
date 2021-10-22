@@ -61,7 +61,9 @@
                                 </children></AnchorPane>
                         </items>
                     </SplitPane>
+
                     <TableView fx:id="tblDisplayHItter" layoutX="-1.0" maxHeight="250.0" minHeight="122.0" prefHeight="130.0" prefWidth="642.0">
+
                         <columns>
                             <TableColumn fx:id="tblDisplayHitterName" prefWidth="163.0" text="Name" />
                             <TableColumn fx:id="tblDisplayHitterPosition" prefWidth="77" text="Position" />
@@ -83,7 +85,9 @@
     <ToolBar prefHeight="52.0" prefWidth="650.0">
         <items>
             <ComboBox fx:id="btnInsertTeam" prefHeight="25.0" prefWidth="111.0" promptText="Select Team" />
+
             <TextField fx:id="btnInsertName" prefHeight="25.0" prefWidth="90.0" promptText="Name" />
+
             <TextField fx:id="txtInsertStatOne" prefWidth="40" />
             <TextField fx:id="txtInsertStatTwo" prefWidth="40" />
             <TextField fx:id="txtInsertStatThree" prefWidth="40" />
@@ -112,6 +116,7 @@
             <TextField fx:id="lblCompareStatEight" prefWidth="40" />
             <TextField fx:id="lblCompareStatNine" prefWidth="40" />
             <TextField fx:id="lblCompareStatTen" prefWidth="40" />
+
         </items>
     </ToolBar>
 </VBox>
