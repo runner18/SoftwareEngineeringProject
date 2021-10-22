@@ -2,25 +2,29 @@ package com.example.softwareengineering;
 
 public class Hitter extends Player
 {
-    private double statH, stat2B, stat3B, statHR, statBB, statK;
+    private double statAtBats, statH, stat1B, stat2B, stat3B, statHR, statBB, statK, statHBP, calcAVG, calcOBP, calcOPS, calcSLG;
     private CalculatedStats calculatedStats;
 
-    public Hitter(String playerNumber, String playerPosition, double statH, double stat2B, double stat3B, double statHR, double statBB, double statK) {
+    public Hitter(String playerNumber, String playerPosition, double statAtBats, double statH, double stat1B, double stat2B, double stat3B, double statHR, double statBB, double statK, double statHBP) {
         super(playerNumber, playerPosition);
+        this.statAtBats = statAtBats;
         this.statH = statH;
+        this.stat1B = stat1B;
         this.stat2B = stat2B;
         this.stat3B = stat3B;
         this.statHR = statHR;
         this.statBB = statBB;
         this.statK = statK;
+        this.statHBP = statHBP;
+        CalculateStats();
     }
 
     public void CalculateStats()
     {
-        calculatedStats.calculateAverage();
-        calculatedStats.calculateOBP();
-        calculatedStats.calculateOPS();
-        calculatedStats.calculateSLG();
+        calcAVG = calculatedStats.calculateAverage(statH, statAtBats);
+        calcOBP = calculatedStats.calculateOBP(statH, statBB, statHBP, statAtBats);
+        calcOPS = calculatedStats.calculateOPS(stat1B, stat2B, stat3B, statHR, statH, statBB, statHBP, statAtBats);
+        calcSLG = calculatedStats.calculateSLG(stat1B, stat2B, stat3B, statHR, statAtBats);
     }
 
     public double getStatH() {

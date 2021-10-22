@@ -1,12 +1,12 @@
 package com.example.softwareengineering;
 
 public class Pitcher extends Player{
-    private double statIp, statW, statL, statCG, statR, statER, statB13, statK, statHR, statH;
+    private double statIP, statW, statL, statCG, statR, statER, statB13, statK, statHR, statH, calcERA;
     private CalculatedStats calculatedStats;
 
-    public Pitcher(String playerNumber, String playerPosition, double statIp, double statW, double statL, double statCG, double statR, double statER, double statB13, double statK, double statHR, double statH) {
+    public Pitcher(String playerNumber, String playerPosition, double statIP, double statW, double statL, double statCG, double statR, double statER, double statB13, double statK, double statHR, double statH) {
         super(playerNumber, playerPosition);
-        this.statIp = statIp;
+        this.statIP = statIP;
         this.statW = statW;
         this.statL = statL;
         this.statCG = statCG;
@@ -16,22 +16,20 @@ public class Pitcher extends Player{
         this.statK = statK;
         this.statHR = statHR;
         this.statH = statH;
+        CalculateStats();
     }
 
     public void CalculateStats()
     {
-        calculatedStats.calculateAverage();
-        calculatedStats.calculateOBP();
-        calculatedStats.calculateOPS();
-        calculatedStats.calculateSLG();
+        calcERA = calculatedStats.calculateERA(statER, statIP);
     }
 
     public double getStatIp() {
-        return statIp;
+        return statIP;
     }
 
-    public void setStatIp(double statIp) {
-        this.statIp = statIp;
+    public void setStatIp(double statIP) {
+        this.statIP = statIP;
     }
 
     public double getStatW() {

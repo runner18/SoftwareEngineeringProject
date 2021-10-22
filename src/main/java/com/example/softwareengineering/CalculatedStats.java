@@ -4,66 +4,31 @@ package com.example.softwareengineering;
 //I have each player containing a CalculatedStats object, where their stats can be calculated and then fetched
 public class CalculatedStats
 {
-    double statAverage, statOBP, statSLG, statOPS, statERA;
 
-    public double getStatAverage() {
-        return statAverage;
-    }
-
-    public void setStatAverage(double statAverage) {
-        this.statAverage = statAverage;
-    }
-
-    public double getStatOBP() {
-        return statOBP;
-    }
-
-    public void setStatOBP(double statOBP) {
-        this.statOBP = statOBP;
-    }
-
-    public double getStatSLG() {
-        return statSLG;
-    }
-
-    public void setStatSLG(double statSLG) {
-        this.statSLG = statSLG;
-    }
-
-    public double getStatOPS() {
-        return statOPS;
-    }
-
-    public void setStatOPS(double statOPS) {
-        this.statOPS = statOPS;
-    }
-
-    public double getStatERA() {
-        return statERA;
-    }
-
-    public void setStatERA(double statERA) {
-        this.statERA = statERA;
-    }
 
     //where the actual calculations take place, will implement further in the future
-    public void calculateAverage()
+    public double calculateAverage(double hits, double atBats)
     {
-
+        return hits / atBats;
     }
 
-    public void calculateOBP()
+    public double calculateOBP(double hits, double walks, double hitByPitch, double atBats)
     {
-
+        return (hits + walks + hitByPitch) / (walks + hitByPitch + atBats);
     }
 
-    public void calculateSLG()
+    public double calculateSLG(double singles, double doubles, double tripples, double homeruns, double atBats)
     {
-
+        return ((singles + doubles + tripples + homeruns) / atBats);
     }
 
-    public void calculateOPS()
+    public double calculateOPS(double singles, double doubles, double tripples, double homeruns, double hits, double walks, double hitByPitch, double atBats)
     {
+        return calculateOBP(hits, walks, hitByPitch, atBats) + calculateSLG(singles, doubles, tripples, homeruns, atBats);
+    }
 
+    public double calculateERA(double earnedRuns, double inningsPitched)
+    {
+        return earnedRuns / inningsPitched;
     }
 }
