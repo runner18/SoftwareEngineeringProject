@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -87,9 +88,16 @@ public class Main extends Application {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
+        //This is how I was testing it rather than making a main class in DatabaseReader.java
+        DatabaseReader reading = new DatabaseReader();
+        Player[] whatever = reading.getStats("b");//Should be how the final product is held but
+        //the problem right now is something in the creation of the hitter objects
+        /*int i = 0;
+        while(!whatever[i].getPersonName().equals(null)){
+            System.out.println(whatever[i++].getPersonName());
+        }*///More testing stuff to make sure it got back here
         launch();
-
     }
 
 }
