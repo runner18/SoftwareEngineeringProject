@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
@@ -14,17 +15,12 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("interface.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 375);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 350);
         stage.setTitle("Softball Statistics Inventory Manager");
         stage.getIcons().add(new Image("https://www.nicepng.com/png/full/40-407156_clip-art-library-stock-collection-of-softball-images.png"));
         stage.setScene(scene);
         stage.show();
 
-        MenuBar btnMenuBarDataManagerImport = (MenuBar) scene.lookup("#btnMenuBarDataManagerImport");
-        MenuBar btnMenuBarDataManagerExport = (MenuBar) scene.lookup("#btnMenuBarDataManagerExport");
-        MenuBar btnMenuBarAboutAuthors = (MenuBar) scene.lookup("#btnMenuBarAboutAuthors");
-        MenuBar btnMenuBarAboutVersion = (MenuBar) scene.lookup("#btnMenuBarAboutVersion");
-        MenuBar btnMenuBarAboutInstructions = (MenuBar) scene.lookup("#btnMenuBarAboutInstructions");
         ComboBox btnInsertTeam = (ComboBox) scene.lookup("#btnInsertTeam");
         TextField txtInsertName = (TextField) scene.lookup("#txtInsertName");
         TextField txtInsertStatOne = (TextField) scene.lookup("#txtInsertStatOne");
@@ -81,12 +77,36 @@ public class Main extends Application {
         TableColumn tblDisplayHitterHR = (TableColumn) scene.lookup("#tblDisplayHitterHR");
         TableColumn tblDisplayHitterH = (TableColumn) scene.lookup("#tblDisplayHitterH");
         */
-
         btnInsertSubmit.setOnAction(actionEvent -> {
-            System.exit(1);
+            if (btnInsertSubmit.getText() != "Submit Pitcher Stats") {
+                btnInsertSubmit.setText("Submit Pitcher Stats");
+            } else {
+                btnInsertSubmit.setText("Submit Hitter Stats");
+            }
         });
 
+        Command cmd = new Command();
+
+        scene.getAccelerators().put(KeyCombination.keyCombination("CTRL+H"), new Runnable() {
+            @Override
+            public void run() {
+                cmd.accessExternalSource("help");
+            }
+        });
+        scene.getAccelerators().put(KeyCombination.keyCombination("CTRL+A"), new Runnable() {
+            @Override
+            public void run() {
+                cmd.accessExternalSource("about");
+            }
+        });
+        scene.getAccelerators().put(KeyCombination.keyCombination("CTRL+E"), new Runnable() {
+            @Override
+            public void run() {
+                cmd.accessExternalSource("export");
+            }
+        });
     }
+
 
     public static void main(String[] args){
         //This is how I was testing it rather than making a main class in DatabaseReader.java
