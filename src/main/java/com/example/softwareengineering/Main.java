@@ -78,7 +78,7 @@ public class Main extends Application {
         TableColumn tblDisplayHitterH = (TableColumn) scene.lookup("#tblDisplayHitterH");
         */
         btnInsertSubmit.setOnAction(actionEvent -> {
-            if (btnInsertSubmit.getText() != "Submit Pitcher Stats") {
+            if (btnInsertSubmit.getText() != "Submit Pitcher Stats") { //Checks to see which setting the btn is on
                 btnInsertSubmit.setText("Submit Pitcher Stats");
             } else {
                 btnInsertSubmit.setText("Submit Hitter Stats");

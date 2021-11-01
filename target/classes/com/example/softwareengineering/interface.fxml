@@ -5,23 +5,6 @@
 <?import javafx.scene.text.*?>
 
 <VBox id="vbox" prefHeight="375.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.softwareengineering.Controller">
-    <MenuBar fx:id="btnMenuBar">
-        <menus>
-            <Menu fx:id="btnMenuBarDataManager" text="Data Manager">
-                <items>
-                    <MenuItem fx:id="btnMenuBarDataManagerImport" text="Import Data" />
-                    <MenuItem fx:id="btnMenuBarDataManagerExport" text="Export Data" />
-                </items>
-            </Menu>
-            <Menu fx:id="btnMenuBarAbout" text="About">
-                <items>
-                    <MenuItem fx:id="btnMenuBarAboutAuthors" text="Authors" />
-                    <MenuItem fx:id="btnMenuBarAboutVersion" text="Version" />
-                    <MenuItem fx:id="btnMenuBarAboutInstructions" text="Instuctions" />
-                </items>
-            </Menu>
-        </menus>
-    </MenuBar>
     <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0">
         <items>
             <AnchorPane maxHeight="250.0" maxWidth="150.0" minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="100.0">
@@ -98,7 +81,7 @@
             <TextField fx:id="txtInsertStatEight" prefWidth="40" />
             <TextField fx:id="txtInsertStatNine" prefWidth="40" />
             <TextField fx:id="txtInsertStatTen" prefWidth="40" />
-            <Button fx:id="btnInsertSubmit" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Submit HITTER" />
+            <Button fx:id="btnInsertSubmit" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Submit Hitter Stats" />
         </items>
     </ToolBar>
     <ToolBar layoutX="10.0" layoutY="287.0" prefHeight="52.0" prefWidth="650.0">
