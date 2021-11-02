@@ -12,7 +12,7 @@ public class AboutCommand extends Command {
     public void desktopIntegration() {
         Desktop d = Desktop.getDesktop();
         try {
-            d.browse(new URI("https://alexduke.net/about_hidden"));
+            d.browse(new URI("https://alexduke.net/about_hidden.html"));
         } catch (IOException | URISyntaxException e2) {
             e2.printStackTrace();
         }
