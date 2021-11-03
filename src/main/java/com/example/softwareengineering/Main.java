@@ -109,14 +109,14 @@ public class Main extends Application {
 
 
     public static void main(String[] args){
-        //This is how I was testing it rather than making a main class in DatabaseReader.java
+
+        //This is how you access the database and read the data inside of them, lots of typecasting
         DatabaseReader reading = new DatabaseReader();
-        Player[] whatever = reading.getStats("b");//Should be how the final product is held but
-        //the problem right now is something in the creation of the hitter objects
-        /*int i = 0;
-        while(!whatever[i].getPersonName().equals(null)){
-            System.out.println(whatever[i++].getPersonName());
-        }*///More testing stuff to make sure it got back here
+        Player[] whatever = reading.getStats("p");
+        Player[] nothing = reading.getStats("b");
+        //System.out.println(whatever[i].getPersonName() + " K:" + ((Pitcher)whatever[i++]).getStatK());
+        //System.out.println(nothing[j].getPersonName() + " H:" + ((Hitter)nothing[j++]).getStatH());
+
         launch();
     }
 

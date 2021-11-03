@@ -3,7 +3,7 @@ package com.example.softwareengineering;
 public class Hitter extends Player
 {
     private double statAtBats, statH, stat1B, stat2B, stat3B, statHR, statBB, statK, statHBP, calcAVG, calcOBP, calcOPS, calcSLG;
-    private CalculatedStats calculatedStats;
+    private CalculatedStats calculatedStats = new CalculatedStats();
 
     public Hitter(String playerNumber, String playerPosition, double statAtBats, double statH, double stat1B, double stat2B, double stat3B, double statHR, double statBB, double statK, double statHBP) {
         super(playerNumber, playerPosition);
@@ -79,7 +79,7 @@ public class Hitter extends Player
         return calculatedStats;
     }
 
-    public void setCalculatedStats(CalculatedStats calculatedStats) {
-        this.calculatedStats = calculatedStats;
-    }
+    //public void setCalculatedStats(CalculatedStats calculatedStats) {
+      //  this.calculatedStats = calculatedStats;
+    //}
 }

@@ -16,91 +16,67 @@ public class DatabaseReader {
             if (name.equals("b")) {
                 stats = new FileReader(battingStats);
                 values = getBatters(stats);
-            } else {
+            }
+            else {
                 stats = new FileReader(pitchingStats);
                 values = getPitchers(stats);
             }
             return values;
         } catch (Exception e){
-            System.out.println("ERROR WITH FILES");
+            e.printStackTrace();
             return null;
         }
     }
 
     //batter stats array, the array values are numbered for the correct ones (there is also extra information
     //for further use)
-    public Player[] getBatters(FileReader stats){
-        Hitter[] obj = new Hitter[40];
+    public Hitter[] getBatters(FileReader stats){
         String line;
         String splitBy = ",";
         BufferedReader br = new BufferedReader(stats);
         int i = 0;
-        String[] words;
+        String[][] words = new String[40][];
         try {
             while ((line = br.readLine()) != null) {
-                words = line.split(splitBy);
-                for(int j = 0; j < words.length; j++){
-                    System.out.println(words[j]);//For testing purposes
-                }
-                //this is just for the data right now as is, can be better formatted later
-                obj[i] = new Hitter(i + "", "hitter",
-                        Double.parseDouble(words[4]) + 0,
-                        (Double.parseDouble(words[6]) + Double.parseDouble(words[7]) +
-                            Double.parseDouble(words[8]) + Double.parseDouble(words[9])) + 0,
-                        Double.parseDouble(words[6]) + 0,
-                        Double.parseDouble(words[7]) + 0,
-                        Double.parseDouble(words[8]) + 0,
-                        Double.parseDouble(words[9]) + 0,
-                        Double.parseDouble(words[13]) + 0,
-                        Double.parseDouble(words[17]) + 0,
-                        Double.parseDouble(words[6]) + 0);
-                obj[i].setPersonName(words[0]);
-                obj[i].setPersonTeam(words[1]);//For whatever reason, none of this will work*/
-
+                words[i] = line.split(splitBy);
                 i++;
             }
-            System.out.println(obj[0].getPersonName());
-            return obj;
         } catch (Exception e) {
             System.out.println("Something broke batterson");
-            return null;
         }
+
+        Hitter[] obj = new Hitter[i];
+        for(int j =0; j < i; j++){
+            obj[j] = new Hitter(j + "", "hitter", 0 + Double.parseDouble(words[j][4]), 0 + (Double.parseDouble(words[j][6]) + Double.parseDouble(words[j][7]) + Double.parseDouble(words[j][8]) + Double.parseDouble(words[j][9])), 0 + Double.parseDouble(words[j][6]), 0 + Double.parseDouble(words[j][7]), 0 + Double.parseDouble(words[j][8]), 0 + Double.parseDouble(words[j][9]), 0 + Double.parseDouble(words[j][13]), 0 + Double.parseDouble(words[j][17]), 0 + Double.parseDouble(words[j][6]));
+
+            obj[j].setPersonTeam(words[j][1]);
+            obj[j].setPersonName(words[j][0]);
+        }
+        return obj;
     }
 
     //batter stats array, the array values are numbered for the correct ones (there is also extra information
     //for further use)
-    public Player[] getPitchers(FileReader stats){
-        Pitcher[] obj = new Pitcher[0];
+    public Pitcher[] getPitchers(FileReader stats){
+        String line;
+        String splitBy = ",";
+        BufferedReader br = new BufferedReader(stats);
+        int i = 0;
+        String[][] words = new String[40][];
         try {
-            String line;
-            String splitBy = ",";
-            BufferedReader br = new BufferedReader(stats);
-            int i = 0;
-            String[] players;
             while ((line = br.readLine()) != null) {
-                players = line.split(splitBy);
-                //this is just for the data right now as is, can be better formatted later
-                obj[i] = new Pitcher(i + "", "pitcher",
-                        Double.parseDouble(players[8]) + 0,
-                        Double.parseDouble(players[2]) + 0,
-                        Double.parseDouble(players[3]) + 0,
-                        Double.parseDouble(players[7]) + 0,
-                        Double.parseDouble(players[6]) + 0,
-                        Double.parseDouble(players[10]) + 0,
-                        Double.parseDouble(players[12]) + 0,
-                        Double.parseDouble(players[13]) + 0,
-                        Double.parseDouble(players[11]) + 0,
-                        Double.parseDouble(players[9]) + 0);//Unsure of B13, so Walks was used
-                obj[i].setPersonName(players[0]);
-                obj[i].setPersonTeam(players[1]);
-
+                words[i] = line.split(splitBy);
                 i++;
             }
-            System.out.println(obj[0].getPersonName());
-            return obj;
         } catch (Exception e) {
             System.out.println("Something broke pitcherson");
-            return null;
         }
+        Pitcher[] obj = new Pitcher[i];
+        for(int j = 0; j < i; j++) {
+            obj[j] = new Pitcher(j + "", "pitcher", Double.parseDouble(words[j][8]), Double.parseDouble(words[j][2]), Double.parseDouble(words[j][3]), Double.parseDouble(words[j][7]), Double.parseDouble(words[j][6]), Double.parseDouble(words[j][10]), Double.parseDouble(words[j][12]), Double.parseDouble(words[j][13]), Double.parseDouble(words[j][11]), Double.parseDouble(words[j][9]));
+            obj[j].setPersonName(words[j][0]);
+            obj[j].setPersonTeam(words[j][1]);
+        }
+        return obj;
     }
 }

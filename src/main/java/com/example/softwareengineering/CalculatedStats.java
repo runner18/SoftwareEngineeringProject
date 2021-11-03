@@ -4,8 +4,6 @@ package com.example.softwareengineering;
 //I have each player containing a CalculatedStats object, where their stats can be calculated and then fetched
 public class CalculatedStats
 {
-
-
     //where the actual calculations take place, will implement further in the future
     public double calculateAverage(double hits, double atBats)
     {
@@ -17,14 +15,14 @@ public class CalculatedStats
         return (hits + walks + hitByPitch) / (walks + hitByPitch + atBats);
     }
 
-    public double calculateSLG(double singles, double doubles, double tripples, double homeruns, double atBats)
+    public double calculateSLG(double singles, double doubles, double triples, double homeruns, double atBats)
     {
-        return ((singles + doubles + tripples + homeruns) / atBats);
+        return ((singles + doubles + triples + homeruns) / atBats);
     }
 
-    public double calculateOPS(double singles, double doubles, double tripples, double homeruns, double hits, double walks, double hitByPitch, double atBats)
+    public double calculateOPS(double singles, double doubles, double triples, double homeruns, double hits, double walks, double hitByPitch, double atBats)
     {
-        return calculateOBP(hits, walks, hitByPitch, atBats) + calculateSLG(singles, doubles, tripples, homeruns, atBats);
+        return calculateOBP(hits, walks, hitByPitch, atBats) + calculateSLG(singles, doubles, triples, homeruns, atBats);
     }
 
     public double calculateERA(double earnedRuns, double inningsPitched)

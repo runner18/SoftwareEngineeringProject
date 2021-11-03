@@ -2,7 +2,7 @@ package com.example.softwareengineering;
 
 public class Pitcher extends Player{
     private double statIP, statW, statL, statCG, statR, statER, statB13, statK, statHR, statH, calcERA;
-    private CalculatedStats calculatedStats;
+    private CalculatedStats calculatedStats = new CalculatedStats();
 
     public Pitcher(String playerNumber, String playerPosition, double statIP, double statW, double statL, double statCG, double statR, double statER, double statB13, double statK, double statHR, double statH) {
         super(playerNumber, playerPosition);
@@ -108,7 +108,7 @@ public class Pitcher extends Player{
         return calculatedStats;
     }
 
-    public void setCalculatedStats(CalculatedStats calculatedStats) {
-        this.calculatedStats = calculatedStats;
-    }
+    //public void setCalculatedStats(CalculatedStats calculatedStats) {
+        //this.calculatedStats = calculatedStats;
+    //}
 }
