@@ -67,6 +67,15 @@
     </SplitPane>
     <ToolBar prefHeight="52.0" prefWidth="650.0">
         <items>
+            <ToggleButton fx:id="btnInsertData" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="154.0" text="Insert Data (CTRL + I)" />
+         <Button fx:id="btnExportData" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="154.0" text="Export Data (CTRL + E)" />
+         <ToggleButton fx:id="btnCompare" alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="18.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="154.0" text="Compare (CTRL + C)" />
+         <Button fx:id="btnHelp" alignment="CENTER" contentDisplay="CENTER" layoutX="288.0" layoutY="18.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="154.0" text="Help (CTRL + H)" />
+         <ColorPicker fx:id="btnColorPicker" layoutX="428.0" layoutY="18.0" prefHeight="30.0" prefWidth="154.0" />
+        </items>
+    </ToolBar>
+    <ToolBar fx:id="tbInsert" prefHeight="52.0" prefWidth="650.0" visible="false">
+        <items>
             <ComboBox fx:id="btnInsertTeam" prefHeight="25.0" prefWidth="111.0" promptText="Select Team" />
 
             <TextField fx:id="btnInsertName" prefHeight="25.0" prefWidth="90.0" promptText="Name" />
@@ -84,7 +93,7 @@
             <Button fx:id="btnInsertSubmit" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Submit Hitter Stats" />
         </items>
     </ToolBar>
-    <ToolBar layoutX="10.0" layoutY="287.0" prefHeight="52.0" prefWidth="650.0">
+    <ToolBar fx:id="tbCompare" layoutX="10.0" layoutY="287.0" prefHeight="52.0" prefWidth="650.0" visible="false">
         <items>
             <ComboBox fx:id="btnComparePlayerOne" prefHeight="25.0" prefWidth="111.0" promptText="Player One" />
             <ComboBox fx:id="btnComparePlayerTwo" layoutX="10.0" layoutY="16.0" prefHeight="25.0" prefWidth="111.0" promptText="Player Two" />
