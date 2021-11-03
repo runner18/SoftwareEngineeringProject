@@ -1,5 +1,7 @@
 package com.example.softwareengineering;
 
+import javax.imageio.plugins.tiff.ExifTIFFTagSet;
+
 public class Command {
 
     public Command() {}
@@ -8,12 +10,13 @@ public class Command {
         if (command == "help") {
             HelpCommand help = new HelpCommand();
             help.desktopIntegration();
-        } else if (command == "about") {
-            AboutCommand about = new AboutCommand();
-            about.desktopIntegration();
-        } else if (command == "export"){
+        } else if (command == "compare") {
+            CompareCommand compare = new CompareCommand();
+            compare.desktopIntegration();
+        } else if (command == "export") {
             ExportCommand export = new ExportCommand();
-            export.exportIntegration();
+        } else if (command == "insert") {
+            InsertCommand insert = new InsertCommand();
         }
     }
 }

@@ -3,6 +3,14 @@ package com.example.softwareengineering;
 import java.io.*;
 
 public class DatabaseReader {
+    /*
+        //This is how you access the database and read the data inside of them, lots of typecasting
+        DatabaseReader reading = new DatabaseReader();
+        Player[] whatever = reading.getStats("p");
+        Player[] nothing = reading.getStats("b");
+        //System.out.println(whatever[i].getPersonName() + " K:" + ((Pitcher)whatever[i++]).getStatK());
+        //System.out.println(nothing[j].getPersonName() + " H:" + ((Hitter)nothing[j++]).getStatH());
+    */
     //CSV over SQL because I could only find that the paid version supports SQL
     String battingStats = "src/main/resources/com/example/softwareengineering/BattingStats.csv";
     String pitchingStats = "src/main/resources/com/example/softwareengineering/PitchingStats.csv";

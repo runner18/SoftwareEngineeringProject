@@ -1,17 +1,17 @@
 package com.example.softwareengineering;
 
-import java.awt.Desktop;
-import java.net.URI;
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 
-public class HelpCommand extends Command {
+public class CompareCommand extends Command {
 
-    public HelpCommand() {}
+    public CompareCommand() {}
     public void desktopIntegration() {
         Desktop d = Desktop.getDesktop();
         try {
-            d.browse(new URI("https://alexduke.net/about_hidden.html"));
+            d.browse(new URI("https://alexduke.net/instructions_hidden"));
         } catch (IOException | URISyntaxException e2) {
             e2.printStackTrace();
         }
