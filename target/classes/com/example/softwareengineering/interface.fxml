@@ -28,7 +28,7 @@
                                     <TableView fx:id="tblDisplayPitcher" layoutX="-4.0" layoutY="138.0" prefHeight="122.0" prefWidth="650.0">
                                         <columns>
                                             <TableColumn fx:id="tblDisplayPitcherName" prefWidth="163.0" text="Name" />
-                                            <TableColumn fx:id="tblDisplayPitcher" prefWidth="77" text="Position" />
+                                            <TableColumn fx:id="tblDisplayPitcherPosition" prefWidth="77" text="Position" />
                                             <TableColumn fx:id="tblDisplayPitcherH" prefWidth="40" text="H" />
                                             <TableColumn fx:id="tblDisplayPitcher2B" prefWidth="40" text="2B" />
                                             <TableColumn fx:id="tblDisplayPitcher3B" prefWidth="40" text="3B" />
@@ -45,7 +45,7 @@
                         </items>
                     </SplitPane>
 
-                    <TableView fx:id="tblDisplayHItter" layoutX="-1.0" maxHeight="250.0" minHeight="122.0" prefHeight="130.0" prefWidth="642.0">
+                    <TableView fx:id="tblDisplayHitter" layoutX="-1.0" maxHeight="250.0" minHeight="122.0" prefHeight="130.0" prefWidth="642.0">
 
                         <columns>
                             <TableColumn fx:id="tblDisplayHitterName" prefWidth="163.0" text="Name" />

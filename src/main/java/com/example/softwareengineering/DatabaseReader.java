@@ -1,19 +1,14 @@
 package com.example.softwareengineering;
 
 import java.io.*;
+import java.util.Arrays;
 
 public class DatabaseReader {
-    /*
-        //This is how you access the database and read the data inside of them, lots of typecasting
-        DatabaseReader reading = new DatabaseReader();
-        Player[] whatever = reading.getStats("p");
-        Player[] nothing = reading.getStats("b");
-        //System.out.println(whatever[i].getPersonName() + " K:" + ((Pitcher)whatever[i++]).getStatK());
-        //System.out.println(nothing[j].getPersonName() + " H:" + ((Hitter)nothing[j++]).getStatH());
-    */
+
     //CSV over SQL because I could only find that the paid version supports SQL
     String battingStats = "src/main/resources/com/example/softwareengineering/BattingStats.csv";
     String pitchingStats = "src/main/resources/com/example/softwareengineering/PitchingStats.csv";
+    static String[] allTeams;
     public DatabaseReader(){}
 
     //Returns the full array of batters or pitchers from the database
@@ -86,5 +81,58 @@ public class DatabaseReader {
             obj[j].setPersonTeam(words[j][1]);
         }
         return obj;
+    }
+
+    //return a list of teams using all players in the database
+    public void setTeams(Player[] hitters, Player[]pitchers){
+        String[] teams = new String[hitters.length+pitchers.length];
+        Arrays.fill(teams, "");
+        for(int i = 0; i < hitters.length; i++){
+            int teamCheck = 0;
+            for(int j = 0; j < teams.length; j++){
+                if(teams[j].length() > 0 && teams[j].equals(hitters[i].getPersonTeam())){
+                    teamCheck++;
+                }
+            }
+            if(teamCheck == 0){
+                for(int j = 0; j < teams.length; j++){
+                    if(teams[j].equals("")){
+                        teams[j] = hitters[i].getPersonTeam();
+                        j = teams.length;
+                    }
+                }
+            }
+        }
+        for(int i = 0; i < pitchers.length; i++){
+            int teamCheck = 0;
+            for(int j = 0; j < teams.length; j++){
+                if(teams[j].length() > 0 && teams[j].equals(pitchers[i].getPersonTeam())){
+                    teamCheck++;
+                }
+            }
+            if(teamCheck == 0){
+                for(int j = 0; j < teams.length; j++){
+                    if(teams[j].equals("")){
+                        teams[j] = pitchers[i].getPersonTeam();
+                        j = teams.length;
+                    }
+                }
+            }
+        }
+        int totalLength = 0;
+        for(int i = 0; i < teams.length; i++) {
+            if (!teams[i].equals("")) {
+                totalLength++;
+            }
+        }
+        String[] finalTeams = new String[totalLength];
+        for(int i = 0; i < totalLength; i++){
+            finalTeams[i] = teams[i];
+        }
+        allTeams = finalTeams;
+    }
+
+    public static String[] getTeams(){
+        return allTeams;
     }
 }
