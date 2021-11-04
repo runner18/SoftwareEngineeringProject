@@ -32,7 +32,6 @@ public class Main extends Application {
         stage.getIcons().add(new Image("https://www.nicepng.com/png/full/40-407156_clip-art-library-stock-collection-of-softball-images.png"));
         stage.setScene(scene);
         stage.show();
-        DatabaseReader reader = new DatabaseReader();
         ComboBox btnInsertTeam = (ComboBox) scene.lookup("#btnInsertTeam");
         ToggleButton btnInsertData = (ToggleButton) scene.lookup("#btnInsertData");
         Button btnHelp = (Button) scene.lookup("#btnHelp");
@@ -184,14 +183,14 @@ public class Main extends Application {
             }
         });
 
-        btnInsertSubmit.setOnAction(actionEvent -> {
+        /*btnInsertSubmit.setOnAction(actionEvent -> {
             if (btnInsertSubmit.getText() != "Submit Pitcher Stats") { //Checks to see which setting the btn is on
                 btnInsertSubmit.setText("Submit Pitcher Stats");
             } else {
                 btnInsertSubmit.setText("Submit Hitter Stats");
                 btnInsertData.setDisable(false);
             }
-        });
+        });*/
 
         scene.getAccelerators().put(KeyCombination.keyCombination("CTRL+H"), new Runnable() {
             @Override
