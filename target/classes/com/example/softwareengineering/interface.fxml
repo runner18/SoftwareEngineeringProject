@@ -11,7 +11,13 @@
                 <children>
                     <TitledPane fx:id="tblDisplayTeams" animated="false" collapsible="false" prefHeight="160.0" prefWidth="150.0" text="Teams" textAlignment="CENTER">
                         <content>
-                            <AnchorPane fx:id="tblDisplayTeam" minHeight="250.0" minWidth="0.0" prefHeight="250.0" prefWidth="148.0" />
+                            <AnchorPane fx:id="tblDisplayTeam" minHeight="250.0" minWidth="0.0" prefHeight="250.0" prefWidth="148.0">
+                        <children>
+                           <VBox fx:id="vBoxDisplayTeams" prefHeight="225.0" prefWidth="150.0">
+                              <children>
+                                 <ListView fx:id="listViewDisplayTeams" prefHeight="226.0" prefWidth="150.0" />
+                              </children></VBox>
+                        </children></AnchorPane>
                         </content>
                         <font>
                             <Font name="System Bold" size="12.0" />
@@ -25,41 +31,41 @@
                         <items>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="260.0" prefWidth="642.0">
                                 <children>
-                                    <TableView fx:id="tblDisplayPitcher" layoutX="-4.0" layoutY="138.0" prefHeight="122.0" prefWidth="650.0">
+                                    <TableView fx:id="tblDisplayHitter" layoutX="-4.0" layoutY="138.0" prefHeight="122.0" prefWidth="650.0">
                                         <columns>
-                                            <TableColumn fx:id="tblDisplayPitcherName" prefWidth="163.0" text="Name" />
-                                            <TableColumn fx:id="tblDisplayPitcherPosition" prefWidth="77" text="Position" />
-                                            <TableColumn fx:id="tblDisplayPitcherH" prefWidth="40" text="H" />
-                                            <TableColumn fx:id="tblDisplayPitcher2B" prefWidth="40" text="2B" />
-                                            <TableColumn fx:id="tblDisplayPitcher3B" prefWidth="40" text="3B" />
-                                            <TableColumn fx:id="tblDisplayPitcherHR" prefWidth="40" text="HR" />
-                                            <TableColumn fx:id="tblDisplayPitcherBB" prefWidth="40" text="BB" />
-                                            <TableColumn fx:id="tblDisplayPitcherK" prefWidth="40" text="K" />
-                                            <TableColumn fx:id="tblDisplayPitcherAVG" prefWidth="40" text="AVG" />
-                                            <TableColumn fx:id="tblDisplayPitcherOBP" prefWidth="40" text="OBP" />
-                                            <TableColumn fx:id="tblDisplayPitcherSLG" prefWidth="40" text="SLG" />
-                                            <TableColumn fx:id="tblDisplayPitcherOPS" prefWidth="40" text="OPS" />
+                                            <TableColumn fx:id="tblDisplayHitterName" prefWidth="163.0" text="Name" />
+                                            <TableColumn fx:id="tblDisplayHitterPosition" prefWidth="77" text="Position" />
+                                            <TableColumn fx:id="tblDisplayHitterH" prefWidth="40" text="H" />
+                                            <TableColumn fx:id="tblDisplayHitter2B" prefWidth="40" text="2B" />
+                                            <TableColumn fx:id="tblDisplayHitter3B" prefWidth="40" text="3B" />
+                                            <TableColumn fx:id="tblDisplayHitterHR" prefWidth="40" text="HR" />
+                                            <TableColumn fx:id="tblDisplayHitterBB" prefWidth="40" text="BB" />
+                                            <TableColumn fx:id="tblDisplayHitterK" prefWidth="40" text="K" />
+                                            <TableColumn fx:id="tblDisplayHitterAVG" prefWidth="40" text="AVG" />
+                                            <TableColumn fx:id="tblDisplayHitterOBP" prefWidth="40" text="OBP" />
+                                            <TableColumn fx:id="tblDisplayHitterSLG" prefWidth="40" text="SLG" />
+                                            <TableColumn fx:id="tblDisplayHitterOPS" prefWidth="40" text="OPS" />
                                         </columns>
                                     </TableView>
                                 </children></AnchorPane>
                         </items>
                     </SplitPane>
 
-                    <TableView fx:id="tblDisplayHitter" layoutX="-1.0" maxHeight="250.0" minHeight="122.0" prefHeight="130.0" prefWidth="642.0">
+                    <TableView fx:id="tblDisplayPitcher" layoutX="-1.0" maxHeight="250.0" minHeight="122.0" prefHeight="130.0" prefWidth="642.0">
 
                         <columns>
-                            <TableColumn fx:id="tblDisplayHitterName" prefWidth="163.0" text="Name" />
-                            <TableColumn fx:id="tblDisplayHitterPosition" prefWidth="77" text="Position" />
-                            <TableColumn fx:id="tblDisplayHitterIP" prefWidth="40" text="IP" />
-                            <TableColumn fx:id="tblDisplayHitterW" prefWidth="40" text="W" />
-                            <TableColumn fx:id="tblDisplayHitterL" prefWidth="40" text="L" />
-                            <TableColumn fx:id="tblDisplayHitterCG" prefWidth="40" text="CG" />
-                            <TableColumn fx:id="tblDisplayHitterR" prefWidth="40" text="R" />
-                            <TableColumn fx:id="tblDisplayHitterER" prefWidth="40" text="ER" />
-                            <TableColumn fx:id="tblDisplayHitterB13" prefWidth="40" text="B13" />
-                            <TableColumn fx:id="tblDisplayHitterK" prefWidth="40" text="K" />
-                            <TableColumn fx:id="tblDisplayHitterHR" prefWidth="40" text="HR" />
-                            <TableColumn fx:id="tblDisplayHitterH" prefWidth="40" text="H" />
+                            <TableColumn fx:id="tblDisplayPitcherName" prefWidth="163.0" text="Name" />
+                            <TableColumn fx:id="tblDisplayPitcherPosition" prefWidth="77" text="Position" />
+                            <TableColumn fx:id="tblDisplayPitcherIP" prefWidth="40" text="IP" />
+                            <TableColumn fx:id="tblDisplayPitcherW" prefWidth="40" text="W" />
+                            <TableColumn fx:id="tblDisplayPitcherL" prefWidth="40" text="L" />
+                            <TableColumn fx:id="tblDisplayPitcherCG" prefWidth="40" text="CG" />
+                            <TableColumn fx:id="tblDisplayPitcherR" prefWidth="40" text="R" />
+                            <TableColumn fx:id="tblDisplayPitcherER" prefWidth="40" text="ER" />
+                            <TableColumn fx:id="tblDisplayPitcherB13" prefWidth="40" text="B13" />
+                            <TableColumn fx:id="tblDisplayPitcherK" prefWidth="40" text="K" />
+                            <TableColumn fx:id="tblDisplayPitcherHR" prefWidth="40" text="HR" />
+                            <TableColumn fx:id="tblDisplayPitcherH" prefWidth="40" text="H" />
                         </columns>
                     </TableView>
                 </children></AnchorPane>

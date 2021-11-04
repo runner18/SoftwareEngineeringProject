@@ -132,6 +132,8 @@ public class DatabaseReader {
         allTeams = finalTeams;
     }
 
+
+
     public static String[] getTeams(){
         return allTeams;
     }

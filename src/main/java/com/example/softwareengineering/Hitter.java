@@ -27,12 +27,28 @@ public class Hitter extends Player
         calcSLG = calculatedStats.calculateSLG(stat1B, stat2B, stat3B, statHR, statAtBats);
     }
 
+    public double getStatAtBats() {
+        return statAtBats;
+    }
+
+    public void setStatAtBats(double statH) {
+        this.statAtBats = statH;
+    }
+
     public double getStatH() {
         return statH;
     }
 
     public void setStatH(double statH) {
         this.statH = statH;
+    }
+
+    public double getStat1B() {
+        return stat1B;
+    }
+
+    public void setStat1B(double stat1B) {
+        this.stat1B = stat1B;
     }
 
     public double getStat2B() {
@@ -78,6 +94,11 @@ public class Hitter extends Player
     public CalculatedStats getCalculatedStats() {
         return calculatedStats;
     }
+
+    public double getCalcAVG(){return calcAVG;}
+    public double getCalcOBP(){return calcOBP;}
+    public double getCalcOPS(){return calcOPS;}
+    public double getCalcSLG(){return calcSLG;}
 
     //public void setCalculatedStats(CalculatedStats calculatedStats) {
       //  this.calculatedStats = calculatedStats;

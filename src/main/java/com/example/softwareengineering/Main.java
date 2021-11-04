@@ -61,14 +61,28 @@ public class Main extends Application {
         TextField lblCompareStatEight = (TextField) scene.lookup("#lblCompareStatEight");
         TextField lblCompareStatNine = (TextField) scene.lookup("#lblCompareStatNine");
         TextField lblCompareStatTen = (TextField) scene.lookup("#lblCompareStatTen");
-        TableView<Pitcher> tblDisplayPitcher = (TableView) scene.lookup("#tblDisplayPitcher");
+        TableView<PitcherModel> tblDisplayPitcher = (TableView) scene.lookup("#tblDisplayPitcher");
 
-        ObservableList<Pitcher> list = FXCollections.observableArrayList();
+        /*
+        ObservableList<Pitcher> pitchList = FXCollections.observableArrayList();
         Player[] pitch = reader.getStats("p");
+        ObservableList<Hitter> hitList = FXCollections.observableArrayList();
+        Player[] hit = reader.getStats("b");
+        /*reader.setTeams(hit, pitch);
+        ObservableList<String> teamList = FXCollections.observableArrayList();
+        String[] teamsAll = reader.getTeams();
+
         for(int i = 0; i < pitch.length; i++){
-            list.add((Pitcher)pitch[i]);
+            pitchList.add((Pitcher)pitch[i]);
+        }
+        for(int i = 0; i < hit.length; i++){
+            hitList.add((Hitter)hit[i]);
+        }/*
+        for(int i = 0; i < teamsAll.length; i++){
+            teamList.add(teamsAll[i]);
         }
 
+         */
         Button btnInsertSubmit = (Button) scene.lookup("#btnInsertSubmit");
         ToolBar tbInsert = (ToolBar) scene.lookup("#tbInsert");
         ToolBar tbCompare = (ToolBar) scene.lookup("#tbCompare");
@@ -76,8 +90,21 @@ public class Main extends Application {
         //TableColumn<Pitcher, String> tblDisplayPitcherName = new TableColumn<>("#tblDisplayPitcherName");
         //tblDisplayPitcherName.setCellValueFactory(new PropertyValueFactory<>("personName"));
 
-        tblDisplayPitcher.setItems(list);
-/*
+/*        TableColumn<PitcherModel, String> tblDisplayPitcherName = new TableColumn<>("#tblDisplayPitcherName");
+
+        tblDisplayPitcherName.setCellValueFactory(new PropertyValueFactory<>("PlayerName"));
+
+        Player[] pitch = reader.getStats("p");
+        ObservableList<PitcherModel> pitchList = FXCollections.observableArrayList();
+        for(int i = 0; i < pitch.length; i++) {
+            pitchList.add(new PitcherModel((Pitcher) pitch[i]));
+        }
+        PitcherModel test = new PitcherModel((Pitcher) pitch[0]);
+        System.out.println(tblDisplayPitcherName.getCellValueFactory());
+        tblDisplayPitcher.setItems(pitchList);
+        tblDisplayPitcher.getColumns().addAll(tblDisplayPitcherName);
+
+        /*
         TableColumn tblDisplayPitcherName = (TableColumn) scene.lookup("#tblDisplayPitcherName");
         TableColumn tblDisplayPitcherPosition = (TableColumn) scene.lookup("#tblDisplayPitcherPosition");
         TableColumn tblDisplayPitcherH = (TableColumn) scene.lookup("#tblDisplayPitcherH");
@@ -91,7 +118,10 @@ public class Main extends Application {
         TableColumn tblDisplayPitcherSLG = (TableColumn) scene.lookup("#tblDisplayPitcherSLG");
         TableColumn tblDisplayPitcherOPS = (TableColumn) scene.lookup("#tblDisplayPitcherOPS");
 */
-        TableView<Hitter> tblDisplayHitter = (TableView) scene.lookup("#tblDisplayHitter");
+        /*TableView<Hitter> tblDisplayHitter = (TableView) scene.lookup("#tblDisplayPitcher");
+
+        tblDisplayHitter.setItems(hitList);*/
+
         /*
         TableColumn tblDisplayHitterName = (TableColumn) scene.lookup("#tblDisplayHitterName");
         TableColumn tblDisplayHitterPosition = (TableColumn) scene.lookup("#tblDisplayHitterPosition");
@@ -192,16 +222,6 @@ public class Main extends Application {
 
 
     public static void main(String[] args){
-        DatabaseReader reading = new DatabaseReader();
-        Player[] pitchers = reading.getStats("p");
-        Player[] hitters = reading.getStats("b");
-        reading.setTeams(hitters, pitchers);
-        String[] teams = reading.getTeams();
-        /*
-        for(int i = 0; i < teams.length; i++){
-            System.out.println(teams[i]);
-        }
-        System.out.println(teams.length);*/
         launch();
     }
 
