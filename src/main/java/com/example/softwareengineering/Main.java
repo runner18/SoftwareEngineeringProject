@@ -205,18 +205,6 @@ public class Main extends Application {
                 cmd.accessExternalSource("export");
             }
         });
-        scene.getAccelerators().put(KeyCombination.keyCombination("CTRL+I"), new Runnable() {
-            @Override
-            public void run() {
-                cmd.accessExternalSource("insert");
-            }
-        });
-        scene.getAccelerators().put(KeyCombination.keyCombination("CTRL+S"), new Runnable() {
-            @Override
-            public void run() {
-                cmd.accessExternalSource("settings");
-            }
-        });
 
     }
 

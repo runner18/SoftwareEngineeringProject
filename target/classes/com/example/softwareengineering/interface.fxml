@@ -73,9 +73,9 @@
     </SplitPane>
     <ToolBar prefHeight="52.0" prefWidth="650.0">
         <items>
-            <ToggleButton fx:id="btnInsertData" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="154.0" text="Insert Data (CTRL + I)" />
+            <ToggleButton fx:id="btnInsertData" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="154.0" text="Insert New Data Into DB" />
+         <ToggleButton fx:id="btnCompare" alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="18.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="154.0" text="Compare Two Players" />
          <Button fx:id="btnExportData" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="154.0" text="Export Data (CTRL + E)" />
-         <ToggleButton fx:id="btnCompare" alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="18.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="154.0" text="Compare (CTRL + C)" />
          <Button fx:id="btnHelp" alignment="CENTER" contentDisplay="CENTER" layoutX="288.0" layoutY="18.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="154.0" text="Help (CTRL + H)" />
          <ColorPicker fx:id="btnColorPicker" layoutX="428.0" layoutY="18.0" prefHeight="30.0" prefWidth="154.0" />
         </items>
