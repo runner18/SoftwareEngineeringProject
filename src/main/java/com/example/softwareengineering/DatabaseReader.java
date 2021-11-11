@@ -50,7 +50,7 @@ public class DatabaseReader {
 
         Hitter[] obj = new Hitter[i];
         for(int j =0; j < i; j++){
-            obj[j] = new Hitter(j + "", "hitter", 0 + Double.parseDouble(words[j][4]), 0 + (Double.parseDouble(words[j][6]) + Double.parseDouble(words[j][7]) + Double.parseDouble(words[j][8]) + Double.parseDouble(words[j][9])), 0 + Double.parseDouble(words[j][6]), 0 + Double.parseDouble(words[j][7]), 0 + Double.parseDouble(words[j][8]), 0 + Double.parseDouble(words[j][9]), 0 + Double.parseDouble(words[j][13]), 0 + Double.parseDouble(words[j][17]), 0 + Double.parseDouble(words[j][6]));
+            obj[j] = new Hitter(j + "", "hitter", 0 + Double.parseDouble(words[j][4]), 0 + (Double.parseDouble(words[j][6]) + Double.parseDouble(words[j][7]) + Double.parseDouble(words[j][8]) + Double.parseDouble(words[j][9])), 0 + Double.parseDouble(words[j][6]), 0 + Double.parseDouble(words[j][7]), 0 + Double.parseDouble(words[j][8]), 0 + Double.parseDouble(words[j][9]), 0 + Double.parseDouble(words[j][13]), 0 + Double.parseDouble(words[j][14]), 0 + Double.parseDouble(words[j][6]));
 
             obj[j].setPersonTeam(words[j][1]);
             obj[j].setPersonName(words[j][0]);
