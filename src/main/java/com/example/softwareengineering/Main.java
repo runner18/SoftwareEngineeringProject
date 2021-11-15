@@ -38,6 +38,7 @@ public class Main extends Application {
         Button btnInsertSubmit = (Button) scene.lookup("#btnInsertSubmit");
         ToolBar tbInsert = (ToolBar) scene.lookup("#tbInsert");
         ToolBar tbCompare = (ToolBar) scene.lookup("#tbCompare");
+        ListView listViewDisplayTeams = (ListView) scene.lookup("#listViewDisplayTeams");
 
         Command cmd = new Command();
         ColorPickerConverter cpc = new ColorPickerConverter();
@@ -52,22 +53,17 @@ public class Main extends Application {
 
         btnCompare.setOnAction(actionEvent -> {
                 if (btnCompare.isSelected()) {
-                    stage.setHeight(400);
+                    stage.setWidth(975);
                     tbCompare.setVisible(true);
                 } else {
-                    if (btnInsertData.isSelected()) {
-                        stage.setHeight(365);
-                        tbCompare.setVisible(false);
-                    } else {
-                        stage.setHeight(330);
-                        tbCompare.setVisible(false);
-                    }
+                    stage.setWidth(815);
+                    tbCompare.setVisible(false);
+
                 }
         });
 
         btnInsertData.setOnAction(actionEvent -> {
                 if (btnInsertData.isSelected()) {
-                    tbCompare.setVisible(false);
                     if (btnInsertSubmit.getText() != "Submit Hitter Stats") {
                         stage.setHeight(365);
                         tbInsert.setVisible(true);

@@ -4,18 +4,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox id="vbox" prefHeight="375.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.softwareengineering.Controller">
+<VBox id="vbox" prefHeight="350.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.softwareengineering.Controller">
     <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0">
         <items>
             <AnchorPane maxHeight="250.0" maxWidth="150.0" minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="100.0">
                 <children>
-                    <TitledPane fx:id="tblDisplayTeams" animated="false" collapsible="false" prefHeight="160.0" prefWidth="150.0" text="Teams" textAlignment="CENTER">
+                    <TitledPane fx:id="tblDisplayTeams" animated="false" collapsible="false" minWidth="150.0" prefHeight="160.0" prefWidth="300.0" text="Teams in League" textAlignment="CENTER">
                         <content>
-                            <AnchorPane fx:id="tblDisplayTeam" minHeight="250.0" minWidth="0.0" prefHeight="250.0" prefWidth="148.0">
+                            <AnchorPane fx:id="tblDisplayTeam" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0">
                         <children>
-                           <VBox fx:id="vBoxDisplayTeams" prefHeight="225.0" prefWidth="150.0">
+                           <VBox fx:id="vBoxDisplayTeams" minWidth="150.0" prefHeight="225.0" prefWidth="150.0">
                               <children>
-                                 <ListView fx:id="listViewDisplayTeams" prefHeight="226.0" prefWidth="150.0" />
+                                 <ListView fx:id="listViewDisplayTeams" minWidth="150.0" prefHeight="226.0" prefWidth="300.0" />
                               </children></VBox>
                         </children></AnchorPane>
                         </content>
@@ -51,7 +51,7 @@
                         </items>
                     </SplitPane>
 
-                    <TableView fx:id="tblDisplayPitcher" layoutX="-1.0" maxHeight="250.0" minHeight="122.0" prefHeight="130.0" prefWidth="642.0">
+                    <TableView fx:id="tblDisplayPitcher" layoutX="-1.0" maxHeight="250.0" minHeight="122.0" prefHeight="130.0" prefWidth="640.0">
 
                         <columns>
                             <TableColumn fx:id="tblDisplayPitcherName" prefWidth="163.0" text="Name" />
@@ -68,6 +68,23 @@
                             <TableColumn fx:id="tblDisplayPitcherH" prefWidth="40" text="H" />
                         </columns>
                     </TableView>
+                <ToolBar fx:id="tbCompare" layoutX="639.0" orientation="VERTICAL" prefHeight="394.0" prefWidth="152.0">
+                    <items>
+                        <ComboBox fx:id="btnComparePlayerOne" prefHeight="25.0" prefWidth="142.0" promptText="Player One" />
+                        <ComboBox fx:id="btnComparePlayerTwo" layoutX="10.0" layoutY="16.0" prefHeight="25.0" prefWidth="142.0" promptText="Player Two" />
+                        <ComboBox fx:id="btnComparePosition" layoutX="125.0" layoutY="17.0" prefHeight="25.0" prefWidth="89.0" promptText="Position" />
+                        <TextField fx:id="lblCompareStatOne" maxWidth="39.0" prefHeight="25.0" prefWidth="39.0" promptText="IP" translateX="100.0" translateY="-29.0" /><TextField fx:id="lblCompareStatTwo" layoutY="10.0" maxWidth="39.0" prefWidth="40" promptText="W" translateY="-19.0" />
+                        <TextField fx:id="lblCompareStatThree" maxWidth="39.0" prefWidth="40" promptText="L" translateX="50.0" translateY="-48.0" />
+                        <TextField fx:id="lblCompareStatFour" maxWidth="39.0" prefWidth="40" promptText="CG" translateX="100.0" translateY="-78.0" />
+                        <TextField fx:id="lblCompareStatFive" maxWidth="39.0" prefWidth="40" promptText="R" translateY="-59.0" />
+                        <TextField fx:id="lblCompareStatSix" maxWidth="40.0" prefWidth="40" promptText="ER" translateX="50.0" translateY="-88.0" />
+                        <TextField fx:id="lblCompareStatSeven" maxWidth="40.0" prefWidth="40" promptText="B13" translateX="100.0" translateY="-118.0" />
+                        <TextField fx:id="lblCompareStatEight" maxWidth="40.0" prefWidth="40" promptText="K" translateY="-99.0" />
+                        <TextField fx:id="lblCompareStatNine" maxWidth="40.0" prefWidth="40" promptText="HR" translateX="50.0" translateY="-128.0" />
+                        <TextField fx:id="lblCompareStatTen" maxWidth="40.0" prefWidth="40" promptText="H" translateX="100.0" translateY="-158.0" />
+            
+                    </items>
+                </ToolBar>
                 </children></AnchorPane>
         </items>
     </SplitPane>
@@ -97,24 +114,6 @@
             <TextField fx:id="txtInsertStatNine" prefWidth="40" />
             <TextField fx:id="txtInsertStatTen" prefWidth="40" />
             <Button fx:id="btnInsertSubmit" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Submit Hitter Stats" />
-        </items>
-    </ToolBar>
-    <ToolBar fx:id="tbCompare" layoutX="10.0" layoutY="287.0" prefHeight="52.0" prefWidth="650.0" visible="false">
-        <items>
-            <ComboBox fx:id="btnComparePlayerOne" prefHeight="25.0" prefWidth="111.0" promptText="Player One" />
-            <ComboBox fx:id="btnComparePlayerTwo" layoutX="10.0" layoutY="16.0" prefHeight="25.0" prefWidth="111.0" promptText="Player Two" />
-            <ComboBox fx:id="btnComparePosition" layoutX="125.0" layoutY="17.0" prefHeight="25.0" prefWidth="111.0" promptText="Position" />
-            <TextField fx:id="lblCompareStatOne" prefWidth="40" />
-            <TextField fx:id="lblCompareStatTwo" prefWidth="40" />
-            <TextField fx:id="lblCompareStatThree" prefWidth="40" />
-            <TextField fx:id="lblCompareStatFour" prefWidth="40" />
-            <TextField fx:id="lblCompareStatFive" prefWidth="40" />
-            <TextField fx:id="lblCompareStatSix" prefWidth="40" />
-            <TextField fx:id="lblCompareStatSeven" prefWidth="40" />
-            <TextField fx:id="lblCompareStatEight" prefWidth="40" />
-            <TextField fx:id="lblCompareStatNine" prefWidth="40" />
-            <TextField fx:id="lblCompareStatTen" prefWidth="40" />
-
         </items>
     </ToolBar>
 </VBox>
