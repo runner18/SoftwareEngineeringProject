@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCombination;
@@ -16,6 +17,10 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Collection;
@@ -35,7 +40,7 @@ public class Main extends Application {
         ComboBox btnInsertTeam = (ComboBox) scene.lookup("#btnInsertTeam");
         ToggleButton btnInsertData = (ToggleButton) scene.lookup("#btnInsertData");
         Button btnHelp = (Button) scene.lookup("#btnHelp");
-        ToggleButton btnCompare = (ToggleButton) scene.lookup("#btnCompare");
+        ToggleButton btnCompare = (ToggleButton) scene.lookup("#btnCompare");/*
         TextField txtInsertName = (TextField) scene.lookup("#txtInsertName");
         TextField txtInsertStatOne = (TextField) scene.lookup("#txtInsertStatOne");
         TextField txtInsertStatTwo = (TextField) scene.lookup("#txtInsertStatTwo");
@@ -59,7 +64,7 @@ public class Main extends Application {
         TextField lblCompareStatSeven = (TextField) scene.lookup("#lblCompareStatSeven");
         TextField lblCompareStatEight = (TextField) scene.lookup("#lblCompareStatEight");
         TextField lblCompareStatNine = (TextField) scene.lookup("#lblCompareStatNine");
-        TextField lblCompareStatTen = (TextField) scene.lookup("#lblCompareStatTen");
+        TextField lblCompareStatTen = (TextField) scene.lookup("#lblCompareStatTen");*/
         TableView<PitcherModel> tblDisplayPitcher = (TableView) scene.lookup("#tblDisplayPitcher");
 
         /*
@@ -207,6 +212,14 @@ public class Main extends Application {
 
     }
 
+
+    @Override
+    public void stop(){
+        System.out.println("Stage is closing");
+        // Save file
+        TableIterator thisThing = new TableIterator();
+        thisThing.writeToFile();
+    }
 
     public static void main(String[] args){
         launch();
