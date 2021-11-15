@@ -13,9 +13,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -26,6 +30,9 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 
 public class Controller {
+    @FXML
+    VBox vBox;
+
     @FXML
     TableView tblDisplayPitcher;
     @FXML
@@ -209,9 +216,13 @@ public class Controller {
 
                 //get the text typed into the submit stats fields
                 String name = btnInsertName.getText();
-                String team = teams[btnInsertTeam.getSelectionModel().getSelectedIndex()];
-
-                //if()
+                String team;
+                if(btnInsertTeam.getSelectionModel().getSelectedIndex() != -1) {
+                    team = teams[btnInsertTeam.getSelectionModel().getSelectedIndex()];
+                }
+                else{
+                    team = teams[0];
+                }
                 double stat1 = Double.parseDouble(txtInsertStatOne.getText());
                 double stat2 = Double.parseDouble(txtInsertStatTwo.getText());
                 double stat3 = Double.parseDouble(txtInsertStatThree.getText());
@@ -222,6 +233,17 @@ public class Controller {
                 double stat8 = Double.parseDouble(txtInsertStatEight.getText());
                 double stat9 = Double.parseDouble(txtInsertStatNine.getText());
                 double stat10 = Double.parseDouble(txtInsertStatTen.getText());
+                btnInsertName.setText("");
+                txtInsertStatOne.setText("");
+                txtInsertStatTwo.setText("");
+                txtInsertStatThree.setText("");
+                txtInsertStatFour.setText("");
+                txtInsertStatFive.setText("");
+                txtInsertStatSix.setText("");
+                txtInsertStatSeven.setText("");
+                txtInsertStatEight.setText("");
+                txtInsertStatNine.setText("");
+                txtInsertStatTen.setText("");
                 char[] strPosition = btnInsertSubmit.getText().toCharArray();
                 String position = "";
 
@@ -413,7 +435,5 @@ public class Controller {
                 }
             }catch(Exception e){}
         });
-
-        //There is no COMPARE button so I guess we'll be watching*/
     }
 }
