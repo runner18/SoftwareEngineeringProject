@@ -268,7 +268,6 @@ public class Controller {
                     txtInsertStatEight.clear();
                     txtInsertStatNine.clear();
                     txtInsertStatTen.clear();
-                    return;
                 }
 
                 //strPosition is an array of characters (I'm not sure why you can't just have a single string)
@@ -289,12 +288,30 @@ public class Controller {
                     newPitch.setPersonTeam(team);
                     pitchList.add(new PitcherModel((Pitcher) newPitch));
                     tblDisplayPitcher.setItems(pitchList);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Player Insert Attempt");
+                    alert.setHeaderText("Success!");
+                    alert.setContentText("Your player has been added to the bottom of the pitcher list");
+                    alert.showAndWait().ifPresent(rs -> {
+                        if (rs == ButtonType.OK) {
+                            System.out.println("Pressed OK.");
+                        }
+                    });
                 } else if (position.equals("hitter")) {
                     Player newHit = new Hitter(String.valueOf(hit.length), position, stat1, stat2, stat3, stat4, stat5, stat6, stat7, stat8, stat9);
                     newHit.setPersonName(name);
                     newHit.setPersonTeam(team);
                     hitList.add(new HitterModel((Hitter) newHit));
                     tblDisplayHitter.setItems(hitList);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Player Insert Attempt");
+                    alert.setHeaderText("Success!");
+                    alert.setContentText("Your player has been added to the bottom of the hitter list");
+                    alert.showAndWait().ifPresent(rs -> {
+                        if (rs == ButtonType.OK) {
+                            System.out.println("Pressed OK.");
+                        }
+                    });
                 }
         });
 
