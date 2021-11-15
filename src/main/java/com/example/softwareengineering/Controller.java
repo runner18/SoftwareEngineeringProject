@@ -20,6 +20,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+
 public class Controller {
     @FXML
     TableView tblDisplayPitcher;
@@ -192,14 +197,21 @@ public class Controller {
 
 
         btnInsertSubmit.setOnAction(actionEvent -> {
+
+            //when this button is clicked, the setting is switched to the other type of player
+            //but isn't this the same button that submits the stats? that doesn't make sense - Diehl
             if (btnInsertSubmit.getText() != "Submit Pitcher Stats") { //Checks to see which setting the btn is on
                 btnInsertSubmit.setText("Submit Pitcher Stats");
             } else {
                 btnInsertSubmit.setText("Submit Hitter Stats");
                 //btnInsertData.setDisable(false);
             }
+
+                //get the text typed into the submit stats fields
                 String name = btnInsertName.getText();
                 String team = teams[btnInsertTeam.getSelectionModel().getSelectedIndex()];
+
+                //if()
                 double stat1 = Double.parseDouble(txtInsertStatOne.getText());
                 double stat2 = Double.parseDouble(txtInsertStatTwo.getText());
                 double stat3 = Double.parseDouble(txtInsertStatThree.getText());
@@ -213,6 +225,32 @@ public class Controller {
                 char[] strPosition = btnInsertSubmit.getText().toCharArray();
                 String position = "";
 
+                if(stat1 <= 0 || stat2 <= 0 || stat2 <= 0 || stat3 <= 0 || stat4 <= 0 || stat5 <= 0 || stat6 <= 0 || stat7 <= 0 || stat8 <= 0 || stat9 <= 0 || stat10 <= 0)
+                {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Please enter in a number above zero for stats.");
+                    alert.setHeaderText("Incorrect Data");
+                    alert.setContentText("Incorrect Stats Entered");
+                    alert.showAndWait().ifPresent(rs -> {
+                        if (rs == ButtonType.OK) {
+                            System.out.println("Pressed OK.");
+                        }
+                    });
+                    txtInsertStatOne.clear();
+                    txtInsertStatTwo.clear();
+                    txtInsertStatThree.clear();
+                    txtInsertStatFour.clear();
+                    txtInsertStatFive.clear();
+                    txtInsertStatSix.clear();
+                    txtInsertStatSeven.clear();
+                    txtInsertStatEight.clear();
+                    txtInsertStatNine.clear();
+                    txtInsertStatTen.clear();
+                    return;
+                }
+
+                //strPosition is an array of characters (I'm not sure why you can't just have a single string)
+                //this array of characters spell out either "Hitter" or "Pitcher" depending on which type of player is submitted
                 for (int i = 0; i < strPosition.length; i++) {
                     if (strPosition[i] == 'H') {//This is backwards because we change the words first
                         position = "pitcher";
@@ -335,6 +373,8 @@ public class Controller {
                 }
             }catch(Exception e){}
         });
+
+        //comparing two players
         btnComparePlayerTwo.setOnAction(actionEvent -> {
             double[] compareStats = new double[10];
             int[] indexes = new int[10];

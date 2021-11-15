@@ -97,7 +97,7 @@
          <ColorPicker fx:id="btnColorPicker" layoutX="428.0" layoutY="18.0" prefHeight="30.0" prefWidth="154.0" />
         </items>
     </ToolBar>
-    <ToolBar fx:id="tbInsert" prefHeight="52.0" prefWidth="650.0" visible="false">
+    <ToolBar fx:id="tbInsert" prefHeight="52.0" prefWidth="650.0">
         <items>
             <ComboBox fx:id="btnInsertTeam" prefHeight="25.0" prefWidth="111.0" promptText="Select Team" />
 
