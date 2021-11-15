@@ -27,7 +27,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("interface.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 290);
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 290);
         stage.setTitle("Softball Statistics Inventory Manager");
         stage.getIcons().add(new Image("https://www.nicepng.com/png/full/40-407156_clip-art-library-stock-collection-of-softball-images.png"));
         stage.setScene(scene);

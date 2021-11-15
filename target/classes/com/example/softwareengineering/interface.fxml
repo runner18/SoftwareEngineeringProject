@@ -99,7 +99,7 @@
     </ToolBar>
     <ToolBar fx:id="tbInsert" prefHeight="52.0" prefWidth="650.0">
         <items>
-            <ComboBox fx:id="btnInsertTeam" prefHeight="25.0" prefWidth="111.0" promptText="Select Team" />
+            <ComboBox fx:id="btnInsertTeam" prefHeight="25.0" prefWidth="111.0" promptText="Selected Team" />
 
             <TextField fx:id="btnInsertName" prefHeight="25.0" prefWidth="90.0" promptText="Name" />
 
