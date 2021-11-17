@@ -125,18 +125,8 @@ public class Controller {
     @FXML
     TextField lblCompareStatTen;
     String[] pitcher = {"IP", "W", "L", "CG", "R", "ER", "B13", "K", "HR", "H"};
-    String[] hitter = {"H", "2B", "3B", "HR", "BB", "K", "AVG", "OBP", "SLG", "OPS"};
-
-    Tooltip TTOne = new Tooltip(pitcher[0]);
-    Tooltip TTTwo = new Tooltip(pitcher[1]);
-    Tooltip TTThree = new Tooltip(pitcher[2]);
-    Tooltip TTFour = new Tooltip(pitcher[3]);
-    Tooltip TTFive = new Tooltip(pitcher[4]);
-    Tooltip TTSix = new Tooltip(pitcher[5]);
-    Tooltip TTSeven = new Tooltip(pitcher[6]);
-    Tooltip TTEight = new Tooltip(pitcher[7]);
-    Tooltip TTNine = new Tooltip(pitcher[8]);
-    Tooltip TTTen = new Tooltip(pitcher[9]);
+    String[] hitter = {"AB", "H", "1B", "2B", "3B", "HR", "BB", "K", "HBP", ""};
+    
     public void initialize(){
         tblDisplayPitcherName.setCellValueFactory(new PropertyValueFactory<>("PlayerName"));
         tblDisplayPitcherPosition.setCellValueFactory(new PropertyValueFactory<>("Position"));
@@ -151,6 +141,16 @@ public class Controller {
         tblDisplayPitcherHR.setCellValueFactory(new PropertyValueFactory<>("StatHR"));
         tblDisplayPitcherH.setCellValueFactory(new PropertyValueFactory<>("StatH"));
 
+        Tooltip TTOne = new Tooltip(hitter[0]);
+        Tooltip TTTwo = new Tooltip(hitter[1]);
+        Tooltip TTThree = new Tooltip(hitter[2]);
+        Tooltip TTFour = new Tooltip(hitter[3]);
+        Tooltip TTFive = new Tooltip(hitter[4]);
+        Tooltip TTSix = new Tooltip(hitter[5]);
+        Tooltip TTSeven = new Tooltip(hitter[6]);
+        Tooltip TTEight = new Tooltip(hitter[7]);
+        Tooltip TTNine = new Tooltip(hitter[8]);
+        Tooltip TTTen = new Tooltip(hitter[9]);
         txtInsertStatOne.setTooltip(TTOne);
         txtInsertStatTwo.setTooltip(TTTwo);
         txtInsertStatThree.setTooltip(TTThree);
@@ -253,105 +253,123 @@ public class Controller {
                 TTTen .setText(hitter[9]);
             }
 
-                //get the text typed into the submit stats fields
-                String name = btnInsertName.getText();
-                String team;
-                if(btnInsertTeam.getSelectionModel().getSelectedIndex() != -1) {
-                    team = teams[btnInsertTeam.getSelectionModel().getSelectedIndex()];
-                }
-                else{
-                    team = teams[0];
-                }
-                double stat1 = Double.parseDouble(txtInsertStatOne.getText());
-                double stat2 = Double.parseDouble(txtInsertStatTwo.getText());
-                double stat3 = Double.parseDouble(txtInsertStatThree.getText());
-                double stat4 = Double.parseDouble(txtInsertStatFour.getText());
-                double stat5 = Double.parseDouble(txtInsertStatFive.getText());
-                double stat6 = Double.parseDouble(txtInsertStatSix.getText());
-                double stat7 = Double.parseDouble(txtInsertStatSeven.getText());
-                double stat8 = Double.parseDouble(txtInsertStatEight.getText());
-                double stat9 = Double.parseDouble(txtInsertStatNine.getText());
-                double stat10 = Double.parseDouble(txtInsertStatTen.getText());
-                btnInsertName.setText("");
-                txtInsertStatOne.setText("");
-                txtInsertStatTwo.setText("");
-                txtInsertStatThree.setText("");
-                txtInsertStatFour.setText("");
-                txtInsertStatFive.setText("");
-                txtInsertStatSix.setText("");
-                txtInsertStatSeven.setText("");
-                txtInsertStatEight.setText("");
-                txtInsertStatNine.setText("");
-                txtInsertStatTen.setText("");
-                char[] strPosition = btnInsertSubmit.getText().toCharArray();
-                String position = "";
 
-                if(stat1 <= 0 || stat2 <= 0 || stat2 <= 0 || stat3 <= 0 || stat4 <= 0 || stat5 <= 0 || stat6 <= 0 || stat7 <= 0 || stat8 <= 0 || stat9 <= 0 || stat10 <= 0)
-                {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Please enter in a number above zero for stats.");
-                    alert.setHeaderText("Incorrect Data");
-                    alert.setContentText("Incorrect Stats Entered");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.println("Pressed OK.");
-                        }
-                    });
-                    txtInsertStatOne.clear();
-                    txtInsertStatTwo.clear();
-                    txtInsertStatThree.clear();
-                    txtInsertStatFour.clear();
-                    txtInsertStatFive.clear();
-                    txtInsertStatSix.clear();
-                    txtInsertStatSeven.clear();
-                    txtInsertStatEight.clear();
-                    txtInsertStatNine.clear();
-                    txtInsertStatTen.clear();
-                }
+            //get the text typed into the submit stats fields
+            String name = btnInsertName.getText();
+            String team;
+            if(btnInsertTeam.getSelectionModel().getSelectedIndex() != -1) {
+                team = teams[btnInsertTeam.getSelectionModel().getSelectedIndex()];
+            }
+            else{
+                team = teams[0];
+            }
+            double stat1 = Double.parseDouble(txtInsertStatOne.getText());
+            double stat2 = Double.parseDouble(txtInsertStatTwo.getText());
+            double stat3 = Double.parseDouble(txtInsertStatThree.getText());
+            double stat4 = Double.parseDouble(txtInsertStatFour.getText());
+            double stat5 = Double.parseDouble(txtInsertStatFive.getText());
+            double stat6 = Double.parseDouble(txtInsertStatSix.getText());
+            double stat7 = Double.parseDouble(txtInsertStatSeven.getText());
+            double stat8 = Double.parseDouble(txtInsertStatEight.getText());
+            double stat9 = Double.parseDouble(txtInsertStatNine.getText());
+            double stat10 = Double.parseDouble(txtInsertStatTen.getText() + 0);
+            btnInsertName.setText("");
+            txtInsertStatOne.setText("");
+            txtInsertStatTwo.setText("");
+            txtInsertStatThree.setText("");
+            txtInsertStatFour.setText("");
+            txtInsertStatFive.setText("");
+            txtInsertStatSix.setText("");
+            txtInsertStatSeven.setText("");
+            txtInsertStatEight.setText("");
+            txtInsertStatNine.setText("");
+            txtInsertStatTen.setText("");
+            char[] strPosition = btnInsertSubmit.getText().toCharArray();
+            String position = "";
 
-                //strPosition is an array of characters (I'm not sure why you can't just have a single string)
-                //this array of characters spell out either "Hitter" or "Pitcher" depending on which type of player is submitted
-                for (int i = 0; i < strPosition.length; i++) {
-                    if (strPosition[i] == 'H') {//This is backwards because we change the words first
-                        position = "pitcher";
-                        i = strPosition.length;
-                    } else if (strPosition[i] == 'P') {//This is backwards because text changes first
-                        position = "hitter";
-                        i = strPosition.length;
+            if(stat1 <= 0 || stat2 <= 0 || stat2 <= 0 || stat3 <= 0 || stat4 <= 0 || stat5 <= 0 || stat6 <= 0 || stat7 <= 0 || stat8 <= 0 || stat9 <= 0 || stat10 <= 0)
+            {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Please enter in a number above zero for stats.");
+                alert.setHeaderText("Incorrect Data");
+                alert.setContentText("Incorrect Stats Entered");
+                alert.showAndWait().ifPresent(rs -> {
+                    if (rs == ButtonType.OK) {
+                        System.out.println("Pressed OK.");
                     }
-                }
+                });
+                txtInsertStatOne.clear();
+                txtInsertStatTwo.clear();
+                txtInsertStatThree.clear();
+                txtInsertStatFour.clear();
+                txtInsertStatFive.clear();
+                txtInsertStatSix.clear();
+                txtInsertStatSeven.clear();
+                txtInsertStatEight.clear();
+                txtInsertStatNine.clear();
+                txtInsertStatTen.clear();
+            }
 
-                if (position.equals("pitcher")) {
-                    Player newPitch = new Pitcher(String.valueOf(pitch.length), position, stat1, stat2, stat3, stat4, stat5, stat6, stat7, stat8, stat9, stat10);
-                    newPitch.setPersonName(name);
-                    newPitch.setPersonTeam(team);
-                    pitchList.add(new PitcherModel((Pitcher) newPitch));
-                    tblDisplayPitcher.setItems(pitchList);
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Player Insert Attempt");
-                    alert.setHeaderText("Success!");
-                    alert.setContentText("Your player has been added to the bottom of the pitcher list");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.println("Pressed OK.");
-                        }
-                    });
-                } else if (position.equals("hitter")) {
-                    Player newHit = new Hitter(String.valueOf(hit.length), position, stat1, stat2, stat3, stat4, stat5, stat6, stat7, stat8, stat9);
-                    newHit.setPersonName(name);
-                    newHit.setPersonTeam(team);
-                    hitList.add(new HitterModel((Hitter) newHit));
-                    tblDisplayHitter.setItems(hitList);
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Player Insert Attempt");
-                    alert.setHeaderText("Success!");
-                    alert.setContentText("Your player has been added to the bottom of the hitter list");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.println("Pressed OK.");
-                        }
-                    });
+            //strPosition is an array of characters (I'm not sure why you can't just have a single string)
+            //this array of characters spell out either "Hitter" or "Pitcher" depending on which type of player is submitted
+            for (int i = 0; i < strPosition.length; i++) {
+                if (strPosition[i] == 'H') {//This is backwards because we change the words first
+                    position = "pitcher";
+                    i = strPosition.length;
+                } else if (strPosition[i] == 'P') {//This is backwards because text changes first
+                    position = "hitter";
+                    i = strPosition.length;
                 }
+            }
+            if (position.equals("pitcher")) {
+                Player newPitch = new Pitcher(String.valueOf(pitch.length), position, stat1, stat2, stat3, stat4, stat5, stat6, stat7, stat8, stat9, stat10);
+                newPitch.setPersonName(name);
+                newPitch.setPersonTeam(team);
+                pitchList.add(new PitcherModel((Pitcher) newPitch));
+                tblDisplayPitcher.setItems(pitchList);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Player Insert Attempt");
+                alert.setHeaderText("Success!");
+                alert.setContentText("Your player has been added to the bottom of the pitcher list");
+                alert.showAndWait().ifPresent(rs -> {
+                    if (rs == ButtonType.OK) {
+                        System.out.println("Pressed OK.");
+                    }
+                });
+            } else if (position.equals("hitter")) {
+                Player newHit = new Hitter(String.valueOf(hit.length), position, stat1, stat2, stat3, stat4, stat5, stat6, stat7, stat8, stat9);
+                newHit.setPersonName(name);
+                newHit.setPersonTeam(team);
+                hitList.add(new HitterModel((Hitter) newHit));
+                tblDisplayHitter.setItems(hitList);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Player Insert Attempt");
+                alert.setHeaderText("Success!");
+                alert.setContentText("Your player has been added to the bottom of the hitter list");
+                alert.showAndWait().ifPresent(rs -> {
+                    if (rs == ButtonType.OK) {
+                        System.out.println("Pressed OK.");
+                    }
+                });
+            }
+
+            String[] tableIteratorInsert = new String[12];
+            tableIteratorInsert[0] = name;//NAME
+            tableIteratorInsert[1] = team;//TEAM
+            tableIteratorInsert[2] = Double.toString(stat1);//atBats OR InningsPitched
+            tableIteratorInsert[3] = Double.toString(stat2);//Hits OR Wins
+            tableIteratorInsert[4] = Double.toString(stat3);//Singles OR Losses
+            tableIteratorInsert[5] = Double.toString(stat4);//Doubles OR CompletedGames
+            tableIteratorInsert[6] = Double.toString(stat5);//Triples OR Runs
+            tableIteratorInsert[7] = Double.toString(stat6);//Homeruns OR EarnedRuns
+            tableIteratorInsert[8] = Double.toString(stat7);//Walks for both
+            tableIteratorInsert[9] = Double.toString(stat8);//Strikeouts for both
+            tableIteratorInsert[10] = Double.toString(stat9);//HitByPitch OR HomerunsAllowed
+            TableIterator insertion = new TableIterator();
+            if(position.equals("pitcher")){
+                tableIteratorInsert[11] = Double.toString(stat10);//HitsAllowed
+            }
+            insertion.insertInfo(position, tableIteratorInsert);
         });
 
         Collection<String> positions = new ArrayList<>();

@@ -37,17 +37,17 @@ public class Main extends Application {
         ToolBar tbInsert = (ToolBar) scene.lookup("#tbInsert");
         ToolBar tbCompare = (ToolBar) scene.lookup("#tbCompare");
         String[] pitcher = {"IP", "W", "L", "CG", "R", "ER", "B13", "K", "HR", "H"};
-        String[] hitter = {"H", "2B", "3B", "HR", "BB", "K", "AVG", "OBP", "SLG", "OPS"};
-        Tooltip TTOne = new Tooltip(pitcher[0]);
-        Tooltip TTTwo = new Tooltip(pitcher[1]);
-        Tooltip TTThree = new Tooltip(pitcher[2]);
-        Tooltip TTFour = new Tooltip(pitcher[3]);
-        Tooltip TTFive = new Tooltip(pitcher[4]);
-        Tooltip TTSix = new Tooltip(pitcher[5]);
-        Tooltip TTSeven = new Tooltip(pitcher[6]);
-        Tooltip TTEight = new Tooltip(pitcher[7]);
-        Tooltip TTNine = new Tooltip(pitcher[8]);
-        Tooltip TTTen = new Tooltip(pitcher[9]);
+        String[] hitter = {"AB", "H", "1B", "2B", "3B", "HR", "BB", "K", "HBP", ""};
+        Tooltip TTOne = new Tooltip(hitter[0]);
+        Tooltip TTTwo = new Tooltip(hitter[1]);
+        Tooltip TTThree = new Tooltip(hitter[2]);
+        Tooltip TTFour = new Tooltip(hitter[3]);
+        Tooltip TTFive = new Tooltip(hitter[4]);
+        Tooltip TTSix = new Tooltip(hitter[5]);
+        Tooltip TTSeven = new Tooltip(hitter[6]);
+        Tooltip TTEight = new Tooltip(hitter[7]);
+        Tooltip TTNine = new Tooltip(hitter[8]);
+        Tooltip TTTen = new Tooltip(hitter[9]);
         lblCompareStatOne.setTooltip(TTOne);
         lblCompareStatTwo.setTooltip(TTTwo);
         lblCompareStatThree.setTooltip(TTThree);
@@ -61,7 +61,7 @@ public class Main extends Application {
         Command cmd = new Command();
         ColorPickerConverter cpc = new ColorPickerConverter();
         ColorPicker btnColorPicker = (ColorPicker) scene.lookup("#btnColorPicker");
-        
+
         btnColorPicker.setOnAction(actionEvent -> {
             scene.getRoot().setStyle("-fx-base:" + cpc.pass(btnColorPicker.getValue()));
         });
@@ -156,8 +156,8 @@ public class Main extends Application {
     public void stop(){
         System.out.println("Stage is closing");
         // Save file
-        /*TableIterator thisThing = new TableIterator();
-        thisThing.writeToFile();*/
+        TableIterator thisThing = new TableIterator();
+        thisThing.writeToFile();
     }
 
     public static void main(String[] args){

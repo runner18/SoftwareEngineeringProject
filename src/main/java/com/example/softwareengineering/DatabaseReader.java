@@ -6,8 +6,9 @@ import java.util.Arrays;
 public class DatabaseReader {
 
     //CSV over SQL because I could only find that the paid version supports SQL
-    String battingStats = "src/main/resources/com/example/softwareengineering/BattingStats.csv";
-    String pitchingStats = "src/main/resources/com/example/softwareengineering/PitchingStats.csv";
+    String location = "src/main/resources/com/example/softwareengineering/";
+    String battingStats = "BattingStats.csv";
+    String pitchingStats = "PitchingStats.csv";
     static String[] allTeams;
     public DatabaseReader(){}
 
@@ -17,11 +18,11 @@ public class DatabaseReader {
             FileReader stats;
             Player[] values;//Should be able to hold either an array of Hitters or Pitchers
             if (name.equals("b")) {
-                stats = new FileReader(battingStats);
+                stats = new FileReader(location + battingStats);
                 values = getBatters(stats);
             }
             else {
-                stats = new FileReader(pitchingStats);
+                stats = new FileReader(location + pitchingStats);
                 values = getPitchers(stats);
             }
             return values;
@@ -38,7 +39,7 @@ public class DatabaseReader {
         String splitBy = ",";
         BufferedReader br = new BufferedReader(stats);
         int i = 0;
-        String[][] words = new String[40][];
+        String[][] words = new String[400][];
         try {
             while ((line = br.readLine()) != null) {
                 words[i] = line.split(splitBy);
@@ -50,7 +51,17 @@ public class DatabaseReader {
 
         Hitter[] obj = new Hitter[i];
         for(int j =0; j < i; j++){
-            obj[j] = new Hitter(j + "", "hitter", 0 + Double.parseDouble(words[j][4]), 0 + (Double.parseDouble(words[j][6]) + Double.parseDouble(words[j][7]) + Double.parseDouble(words[j][8]) + Double.parseDouble(words[j][9])), 0 + Double.parseDouble(words[j][6]), 0 + Double.parseDouble(words[j][7]), 0 + Double.parseDouble(words[j][8]), 0 + Double.parseDouble(words[j][9]), 0 + Double.parseDouble(words[j][13]), 0 + Double.parseDouble(words[j][14]), 0 + Double.parseDouble(words[j][6]));
+            obj[j] = new Hitter(j + "",
+                    "hitter",
+                    0 + Double.parseDouble(words[j][2]),
+                    0 + Double.parseDouble(words[j][3]),
+                    0 + Double.parseDouble(words[j][4]),
+                    0 + Double.parseDouble(words[j][5]),
+                    0 + Double.parseDouble(words[j][6]),
+                    0 + Double.parseDouble(words[j][7]),
+                    0 + Double.parseDouble(words[j][8]),
+                    0 + Double.parseDouble(words[j][9]),
+                    0 + Double.parseDouble(words[j][10]));
 
             obj[j].setPersonTeam(words[j][1]);
             obj[j].setPersonName(words[j][0]);
@@ -78,7 +89,18 @@ public class DatabaseReader {
         }
         Pitcher[] obj = new Pitcher[i];
         for(int j = 0; j < i; j++) {
-            obj[j] = new Pitcher(j + "", "pitcher", Double.parseDouble(words[j][8]), Double.parseDouble(words[j][2]), Double.parseDouble(words[j][3]), Double.parseDouble(words[j][7]), Double.parseDouble(words[j][6]), Double.parseDouble(words[j][10]), Double.parseDouble(words[j][12]), Double.parseDouble(words[j][13]), Double.parseDouble(words[j][11]), Double.parseDouble(words[j][9]));
+            obj[j] = new Pitcher(j + "",
+                    "pitcher",
+                    Double.parseDouble(words[j][2]) + 0,
+                    Double.parseDouble(words[j][3]) + 0,
+                    Double.parseDouble(words[j][4]) + 0,
+                    Double.parseDouble(words[j][5]) + 0,
+                    Double.parseDouble(words[j][6]) + 0,
+                    Double.parseDouble(words[j][7]) + 0,
+                    Double.parseDouble(words[j][8]) + 0,
+                    Double.parseDouble(words[j][9]) + 0,
+                    Double.parseDouble(words[j][10]) + 0,
+                    Double.parseDouble(words[j][11]) + 0);
             obj[j].setPersonName(words[j][0]);
             obj[j].setPersonTeam(words[j][1]);
         }
@@ -137,8 +159,6 @@ public class DatabaseReader {
         }
         allTeams = finalTeams;
     }
-
-
 
     public static String[] getTeams(){
         return allTeams;
