@@ -21,3 +21,8 @@ The data is fetched and dispalyed in a table as shown below. The table can then 
 Once the interface has been expanded, the user can then select the team that they would like to insert a new player into. From there, the user can then input the player name and the various statistics. After this occurs, the user will then put in all of the pitcher statistics and the data will be entered successfully into the database. 
 
 ![alt text](https://i.imgur.com/X1q2ehA.png)
+
+## Compare Players
+This ability can be accessed by the respective button, in the center of the toolbar. Once this button is clicked, it acts similar to the insert button and expands the interface window to include a new toolbar. The new toolbar has two buttons and various labels.
+
+![alt text](https://i.imgur.com/fUmb0hY.png)
