@@ -146,7 +146,9 @@ public class Controller {
     TextField lblCompareStatNine;
     @FXML
     TextField lblCompareStatTen;
-
+    String[] pitcher = {"IP", "W", "L", "CG", "R", "ER", "B13", "K", "HR", "H"};
+    String[] hitter = {"H", "2B", "3B", "HR", "BB", "K", "AVG", "OBP", "SLG", "OPS"};
+    
     public void initialize(){
         tblDisplayPitcherName.setCellValueFactory(new PropertyValueFactory<>("PlayerName"));
         tblDisplayPitcherPosition.setCellValueFactory(new PropertyValueFactory<>("Position"));
@@ -160,6 +162,27 @@ public class Controller {
         tblDisplayPitcherK.setCellValueFactory(new PropertyValueFactory<>("StatK"));
         tblDisplayPitcherHR.setCellValueFactory(new PropertyValueFactory<>("StatHR"));
         tblDisplayPitcherH.setCellValueFactory(new PropertyValueFactory<>("StatH"));
+        Tooltip TTOne = new Tooltip(pitcher[0]);
+        Tooltip TTTwo = new Tooltip(pitcher[1]);
+        Tooltip TTThree = new Tooltip(pitcher[2]);
+        Tooltip TTFour = new Tooltip(pitcher[3]);
+        Tooltip TTFive = new Tooltip(pitcher[4]);
+        Tooltip TTSix = new Tooltip(pitcher[5]);
+        Tooltip TTSeven = new Tooltip(pitcher[6]);
+        Tooltip TTEight = new Tooltip(pitcher[7]);
+        Tooltip TTNine = new Tooltip(pitcher[8]);
+        Tooltip TTTen = new Tooltip(pitcher[9]);
+        txtInsertStatOne.setTooltip(TTOne);
+        txtInsertStatTwo.setTooltip(TTTwo);
+        txtInsertStatThree.setTooltip(TTThree);
+        txtInsertStatFour.setTooltip(TTFour);
+        txtInsertStatFive.setTooltip(TTFive);
+        txtInsertStatSix.setTooltip(TTSix);
+        txtInsertStatSeven.setTooltip(TTSeven);
+        txtInsertStatEight.setTooltip(TTEight);
+        txtInsertStatNine.setTooltip(TTNine);
+        txtInsertStatTen.setTooltip(TTTen);
+        
         DatabaseReader reader = new DatabaseReader();
         Player[] pitch = reader.getStats("p");
         String[] pitchNames = new String[pitch.length];
@@ -209,9 +232,48 @@ public class Controller {
             //but isn't this the same button that submits the stats? that doesn't make sense - Diehl
             if (btnInsertSubmit.getText() != "Submit Pitcher Stats") { //Checks to see which setting the btn is on
                 btnInsertSubmit.setText("Submit Pitcher Stats");
+                txtInsertStatOne.setPromptText(pitcher[0]);
+                txtInsertStatTwo.setPromptText(pitcher[1]);
+                txtInsertStatThree.setPromptText(pitcher[2]);
+                txtInsertStatFour.setPromptText(pitcher[3]);
+                txtInsertStatFive.setPromptText(pitcher[4]);
+                txtInsertStatSix.setPromptText(pitcher[5]);
+                txtInsertStatSeven.setPromptText(pitcher[6]);
+                txtInsertStatEight.setPromptText(pitcher[7]);
+                txtInsertStatNine.setPromptText(pitcher[8]);
+                txtInsertStatTen.setPromptText(pitcher[9]);
+                TTOne.setText(pitcher[0]);
+                TTTwo.setText(pitcher[1]);
+                TTThree .setText(pitcher[2]);
+                TTFour .setText(pitcher[3]);
+                TTFive .setText(pitcher[4]);
+                TTSix .setText(pitcher[5]);
+                TTSeven .setText(pitcher[6]);
+                TTEight .setText(pitcher[7]);
+                TTNine .setText(pitcher[8]);
+                TTTen .setText(pitcher[9]);
             } else {
                 btnInsertSubmit.setText("Submit Hitter Stats");
-                //btnInsertData.setDisable(false);
+                txtInsertStatOne.setPromptText(hitter[0]);
+                txtInsertStatTwo.setPromptText(hitter[1]);
+                txtInsertStatThree.setPromptText(hitter[2]);
+                txtInsertStatFour.setPromptText(hitter[3]);
+                txtInsertStatFive.setPromptText(hitter[4]);
+                txtInsertStatSix.setPromptText(hitter[5]);
+                txtInsertStatSeven.setPromptText(hitter[6]);
+                txtInsertStatEight.setPromptText(hitter[7]);
+                txtInsertStatNine.setPromptText(hitter[8]);
+                txtInsertStatTen.setPromptText(hitter[9]);
+                TTOne .setText(hitter[0]);
+                TTTwo .setText(hitter[1]);
+                TTThree .setText(hitter[2]);
+                TTFour .setText(hitter[3]);
+                TTFive .setText(hitter[4]);
+                TTSix .setText(hitter[5]);
+                TTSeven .setText(hitter[6]);
+                TTEight .setText(hitter[7]);
+                TTNine .setText(hitter[8]);
+                TTTen .setText(hitter[9]);
             }
 
                 //get the text typed into the submit stats fields

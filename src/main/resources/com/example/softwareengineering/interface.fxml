@@ -82,7 +82,7 @@
                         <TextField fx:id="lblCompareStatEight" maxWidth="40.0" prefWidth="40" promptText="K" translateY="-99.0" />
                         <TextField fx:id="lblCompareStatNine" maxWidth="40.0" prefWidth="40" promptText="HR" translateX="50.0" translateY="-128.0" />
                         <TextField fx:id="lblCompareStatTen" maxWidth="40.0" prefWidth="40" promptText="H" translateX="100.0" translateY="-158.0" />
-            
+
                     </items>
                 </ToolBar>
                 </children></AnchorPane>
@@ -99,20 +99,20 @@
     </ToolBar>
     <ToolBar fx:id="tbInsert" prefHeight="52.0" prefWidth="650.0">
         <items>
-            <ComboBox fx:id="btnInsertTeam" prefHeight="25.0" prefWidth="111.0" promptText="Selected Team" />
+            <ComboBox fx:id="btnInsertTeam" prefHeight="25.0" prefWidth="111.0" promptText="Team" />
 
             <TextField fx:id="btnInsertName" prefHeight="25.0" prefWidth="90.0" promptText="Name" />
 
-            <TextField fx:id="txtInsertStatOne" prefWidth="40" />
-            <TextField fx:id="txtInsertStatTwo" prefWidth="40" />
-            <TextField fx:id="txtInsertStatThree" prefWidth="40" />
-            <TextField fx:id="txtInsertStatFour" prefWidth="40" />
-            <TextField fx:id="txtInsertStatFive" prefWidth="40" />
-            <TextField fx:id="txtInsertStatSix" prefWidth="40" />
-            <TextField fx:id="txtInsertStatSeven" prefWidth="40" />
-            <TextField fx:id="txtInsertStatEight" prefWidth="40" />
-            <TextField fx:id="txtInsertStatNine" prefWidth="40" />
-            <TextField fx:id="txtInsertStatTen" prefWidth="40" />
+            <TextField fx:id="txtInsertStatOne" prefWidth="40" promptText="IP" />
+            <TextField fx:id="txtInsertStatTwo" prefWidth="40" promptText="W" />
+            <TextField fx:id="txtInsertStatThree" prefWidth="40" promptText="L" />
+            <TextField fx:id="txtInsertStatFour" prefWidth="40" promptText="CG" />
+            <TextField fx:id="txtInsertStatFive" prefWidth="40" promptText="R" />
+            <TextField fx:id="txtInsertStatSix" prefWidth="40" promptText="ER" />
+            <TextField fx:id="txtInsertStatSeven" prefWidth="40" promptText="B13" />
+            <TextField fx:id="txtInsertStatEight" prefWidth="40" promptText="K" />
+            <TextField fx:id="txtInsertStatNine" prefWidth="40" promptText="HR" />
+            <TextField fx:id="txtInsertStatTen" prefWidth="40" promptText="H" />
             <Button fx:id="btnInsertSubmit" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Submit Hitter Stats" />
         </items>
     </ToolBar>
