@@ -100,7 +100,4 @@ public class Hitter extends Player
     public double getCalcOPS(){return calcOPS;}
     public double getCalcSLG(){return calcSLG;}
 
-    //public void setCalculatedStats(CalculatedStats calculatedStats) {
-      //  this.calculatedStats = calculatedStats;
-    //}
 }

@@ -108,7 +108,4 @@ public class Pitcher extends Player{
         return calculatedStats;
     }
 
-    //public void setCalculatedStats(CalculatedStats calculatedStats) {
-        //this.calculatedStats = calculatedStats;
-    //}
 }

@@ -1,7 +1,5 @@
 package com.example.softwareengineering;
 
-import javax.imageio.plugins.tiff.ExifTIFFTagSet;
-
 public class Command {
 
     public Command() {}

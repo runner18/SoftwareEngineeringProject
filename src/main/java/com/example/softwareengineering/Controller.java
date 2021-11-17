@@ -2,8 +2,6 @@ package com.example.softwareengineering;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
@@ -15,24 +13,11 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-
-import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.image.Image;
-
 public class Controller {
-    @FXML
-    VBox vBox;
-
     @FXML
     TableView tblDisplayPitcher;
     @FXML
@@ -59,7 +44,6 @@ public class Controller {
     TableColumn tblDisplayPitcherHR;
     @FXML
     TableColumn tblDisplayPitcherH;
-
     @FXML
     TableView tblDisplayHitter;
     @FXML
@@ -86,14 +70,10 @@ public class Controller {
     TableColumn tblDisplayHitterSLG;
     @FXML
     TableColumn tblDisplayHitterOPS;
-
-
     @FXML
     ComboBox btnInsertTeam;
     @FXML
-    Button btnInsertSubmit;/*
-    @FXML
-    Button btnInsertData;*/
+    Button btnInsertSubmit;
     @FXML
     TextField btnInsertName;
     @FXML
@@ -116,10 +96,8 @@ public class Controller {
     TextField txtInsertStatNine;
     @FXML
     TextField txtInsertStatTen;
-
     @FXML
     ListView listViewDisplayTeams;
-
     @FXML
     ComboBox btnComparePosition;
     @FXML
@@ -148,7 +126,17 @@ public class Controller {
     TextField lblCompareStatTen;
     String[] pitcher = {"IP", "W", "L", "CG", "R", "ER", "B13", "K", "HR", "H"};
     String[] hitter = {"H", "2B", "3B", "HR", "BB", "K", "AVG", "OBP", "SLG", "OPS"};
-    
+
+    Tooltip TTOne = new Tooltip(pitcher[0]);
+    Tooltip TTTwo = new Tooltip(pitcher[1]);
+    Tooltip TTThree = new Tooltip(pitcher[2]);
+    Tooltip TTFour = new Tooltip(pitcher[3]);
+    Tooltip TTFive = new Tooltip(pitcher[4]);
+    Tooltip TTSix = new Tooltip(pitcher[5]);
+    Tooltip TTSeven = new Tooltip(pitcher[6]);
+    Tooltip TTEight = new Tooltip(pitcher[7]);
+    Tooltip TTNine = new Tooltip(pitcher[8]);
+    Tooltip TTTen = new Tooltip(pitcher[9]);
     public void initialize(){
         tblDisplayPitcherName.setCellValueFactory(new PropertyValueFactory<>("PlayerName"));
         tblDisplayPitcherPosition.setCellValueFactory(new PropertyValueFactory<>("Position"));
@@ -162,16 +150,7 @@ public class Controller {
         tblDisplayPitcherK.setCellValueFactory(new PropertyValueFactory<>("StatK"));
         tblDisplayPitcherHR.setCellValueFactory(new PropertyValueFactory<>("StatHR"));
         tblDisplayPitcherH.setCellValueFactory(new PropertyValueFactory<>("StatH"));
-        Tooltip TTOne = new Tooltip(pitcher[0]);
-        Tooltip TTTwo = new Tooltip(pitcher[1]);
-        Tooltip TTThree = new Tooltip(pitcher[2]);
-        Tooltip TTFour = new Tooltip(pitcher[3]);
-        Tooltip TTFive = new Tooltip(pitcher[4]);
-        Tooltip TTSix = new Tooltip(pitcher[5]);
-        Tooltip TTSeven = new Tooltip(pitcher[6]);
-        Tooltip TTEight = new Tooltip(pitcher[7]);
-        Tooltip TTNine = new Tooltip(pitcher[8]);
-        Tooltip TTTen = new Tooltip(pitcher[9]);
+
         txtInsertStatOne.setTooltip(TTOne);
         txtInsertStatTwo.setTooltip(TTTwo);
         txtInsertStatThree.setTooltip(TTThree);
@@ -182,7 +161,7 @@ public class Controller {
         txtInsertStatEight.setTooltip(TTEight);
         txtInsertStatNine.setTooltip(TTNine);
         txtInsertStatTen.setTooltip(TTTen);
-        
+
         DatabaseReader reader = new DatabaseReader();
         Player[] pitch = reader.getStats("p");
         String[] pitchNames = new String[pitch.length];
@@ -223,8 +202,6 @@ public class Controller {
 
         ObservableList<String> teamItems = FXCollections.observableArrayList(teamList);
         listViewDisplayTeams.setItems(teamItems);
-
-
 
         btnInsertSubmit.setOnAction(actionEvent -> {
 
@@ -477,8 +454,8 @@ public class Controller {
 
         //comparing two players
         btnComparePlayerTwo.setOnAction(actionEvent -> {
-            double[] compareStats = new double[10];
-            int[] indexes = new int[10];
+            double[] compareStats;
+            int[] indexes;
             try {
                 if (!btnComparePlayerOne.getSelectionModel().getSelectedItem().toString().equals(null)) {
                     if (btnComparePosition.getSelectionModel().getSelectedItem().toString().equals("Pitcher")) {
@@ -512,7 +489,9 @@ public class Controller {
                     lblCompareStatTen.setText(Double.toString(compareStats[c]));
                     lblCompareStatTen.setBackground(colors[indexes[c++]]);
                 }
-            }catch(Exception e){}
+            } catch(Exception e){
+                System.out.println("[ERROR: Player Comparison] The Player Comparison Subsystem has experienced an error.");
+            }
         });
     }
 }
