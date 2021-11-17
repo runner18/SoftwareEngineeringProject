@@ -37,7 +37,7 @@ public class Main extends Application {
         ToolBar tbInsert = (ToolBar) scene.lookup("#tbInsert");
         ToolBar tbCompare = (ToolBar) scene.lookup("#tbCompare");
         String[] pitcher = {"IP", "W", "L", "CG", "R", "ER", "B13", "K", "HR", "H"};
-        String[] hitter = {"AB", "H", "1B", "2B", "3B", "HR", "BB", "K", "HBP", ""};
+        String[] hitter = {"H", "2B", "3B", "HR", "BB", "K", "AVG", "OBP", "SLG", "OPS"};
         Tooltip TTOne = new Tooltip(hitter[0]);
         Tooltip TTTwo = new Tooltip(hitter[1]);
         Tooltip TTThree = new Tooltip(hitter[2]);
