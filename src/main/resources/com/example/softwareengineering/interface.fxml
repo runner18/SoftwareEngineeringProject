@@ -99,7 +99,8 @@
     </ToolBar>
     <ToolBar fx:id="tbInsert" prefHeight="52.0" prefWidth="650.0">
         <items>
-            <ComboBox fx:id="btnInsertTeam" prefHeight="25.0" prefWidth="111.0" promptText="Team" />
+            <ComboBox fx:id="btnInsertTeam" prefHeight="25.0" prefWidth="100.0" promptText="Team" />
+         <ComboBox fx:id="btnInsertPosition" prefHeight="25.0" prefWidth="89.0" promptText="Position" />
 
             <TextField fx:id="btnInsertName" prefHeight="25.0" prefWidth="90.0" promptText="Name" />
 
@@ -113,7 +114,7 @@
             <TextField fx:id="txtInsertStatEight" prefWidth="40" promptText="OBP" />
             <TextField fx:id="txtInsertStatNine" prefWidth="40" promptText="SLG" />
             <TextField fx:id="txtInsertStatTen" prefWidth="40" promptText="OPS" />
-            <Button fx:id="btnInsertSubmit" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Submit Hitter Stats" />
+            <Button fx:id="btnInsertSubmit" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Submit" />
         </items>
     </ToolBar>
 </VBox>
