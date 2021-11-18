@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -457,8 +458,8 @@ public class Controller {
         });
 
         btnComparePlayerOne.setOnAction(actionEvent -> {
-            double[] compareStats = new double[10];
-            int[] indexes = new int[10];
+            double[] compareStats;
+            int[] indexes;
             try {
                 if (!btnComparePlayerTwo.getSelectionModel().getSelectedItem().toString().equals(null)) {
                     if (btnComparePosition.getSelectionModel().getSelectedItem().toString().equals("Pitcher")) {
@@ -538,63 +539,22 @@ public class Controller {
         });
 
         btnExportData.setOnAction(actionEvent -> {
-            //insertion.exportFile(fileToSave.getAbsolutePath());
-            System.out.println("Totally saved that file. Yep");
+            JFileChooser j = new JFileChooser("C:");
 
+            int r = j.showSaveDialog(null);
+
+            if (r == JFileChooser.APPROVE_OPTION) {
+                insertion.exportFile(j.getSelectedFile().getAbsolutePath());
+            }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("File Export Attempt");
+            alert.setHeaderText("Success!");
+            alert.setContentText("Files have been saved in the specified location\nThey are named Batting and Pitching stats respectively");
+            alert.showAndWait().ifPresent(rs -> {
+                if (rs == ButtonType.OK) {
+                    System.out.println("Pressed OK.");
+                }
+            });
         });
-    }
-    private void resetCols(String position){
-        if(position.equals("pitch")){
-            tblDisplayPitcherName.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayPitcherPosition.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayPitcherIP.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayPitcherW.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayPitcherL.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayPitcherCG.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayPitcherR.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayPitcherER.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayPitcherB13.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayPitcherK.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayPitcherHR.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayPitcherH.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayPitcherName.setCellValueFactory(new PropertyValueFactory<>("PlayerName"));
-            tblDisplayPitcherPosition.setCellValueFactory(new PropertyValueFactory<>("Position"));
-            tblDisplayPitcherIP.setCellValueFactory(new PropertyValueFactory<>("StatIP"));
-            tblDisplayPitcherW.setCellValueFactory(new PropertyValueFactory<>("StatW"));
-            tblDisplayPitcherL.setCellValueFactory(new PropertyValueFactory<>("StatL"));
-            tblDisplayPitcherCG.setCellValueFactory(new PropertyValueFactory<>("StatCG"));
-            tblDisplayPitcherR.setCellValueFactory(new PropertyValueFactory<>("StatR"));
-            tblDisplayPitcherER.setCellValueFactory(new PropertyValueFactory<>("StatER"));
-            tblDisplayPitcherB13.setCellValueFactory(new PropertyValueFactory<>("StatB13"));
-            tblDisplayPitcherK.setCellValueFactory(new PropertyValueFactory<>("StatK"));
-            tblDisplayPitcherHR.setCellValueFactory(new PropertyValueFactory<>("StatHR"));
-            tblDisplayPitcherH.setCellValueFactory(new PropertyValueFactory<>("StatH"));
-        }
-        else{
-            tblDisplayHitterName.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayHitterPosition.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayHitterH.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayHitter2B.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayHitter3B.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayHitterHR.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayHitterBB.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayHitterK.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayHitterAVG.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayHitterOBP.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayHitterOPS.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayHitterSLG.setCellValueFactory(new PropertyValueFactory<>(""));
-            tblDisplayHitterName.setCellValueFactory(new PropertyValueFactory<>("PlayerName"));
-            tblDisplayHitterPosition.setCellValueFactory(new PropertyValueFactory<>("Position"));
-            tblDisplayHitterH.setCellValueFactory(new PropertyValueFactory<>("Stat1B"));
-            tblDisplayHitter2B.setCellValueFactory(new PropertyValueFactory<>("Stat2B"));
-            tblDisplayHitter3B.setCellValueFactory(new PropertyValueFactory<>("Stat3B"));
-            tblDisplayHitterHR.setCellValueFactory(new PropertyValueFactory<>("StatHR"));
-            tblDisplayHitterBB.setCellValueFactory(new PropertyValueFactory<>("StatBB"));
-            tblDisplayHitterK.setCellValueFactory(new PropertyValueFactory<>("StatK"));
-            tblDisplayHitterAVG.setCellValueFactory(new PropertyValueFactory<>("StatAVG"));
-            tblDisplayHitterOBP.setCellValueFactory(new PropertyValueFactory<>("StatOBP"));
-            tblDisplayHitterOPS.setCellValueFactory(new PropertyValueFactory<>("StatOPS"));
-            tblDisplayHitterSLG.setCellValueFactory(new PropertyValueFactory<>("StatSLG"));
-        }
     }
 }
