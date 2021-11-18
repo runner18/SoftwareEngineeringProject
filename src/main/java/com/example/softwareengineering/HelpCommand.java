@@ -11,8 +11,6 @@ package com.example.softwareengineering;
 
 import java.awt.Desktop;
 import java.net.URI;
-import java.io.IOException;
-import java.net.URISyntaxException;
 
 public class HelpCommand extends Command {
 
@@ -20,7 +18,9 @@ public class HelpCommand extends Command {
      * HelpCommand Default Constructor
      * Default constructor for HelpCommand class
      */
-    public HelpCommand() {}
+    public HelpCommand() {
+        System.out.println("[DEBUG: Help Command] The subsystem's constructor is successful.");
+    }
 
     /**
      * DesktopIntegration Method

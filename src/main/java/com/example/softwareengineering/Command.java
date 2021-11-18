@@ -15,7 +15,9 @@ public class Command {
      * Command Default Constructor
      * Default constructor for Command interface
      */
-    public Command() {}
+    public Command() {
+        System.out.println("[DEBUG: Command] The subsystem's constructor is running successfully.");
+    }
 
     /**
      * AccessExternalSourceMethod

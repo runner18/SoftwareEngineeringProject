@@ -10,27 +10,60 @@
 
 package com.example.softwareengineering;
 
-//the abstract class for a team player, either a hitter or pitcher are the child classes
 abstract class Person {
-    private String personName, personTeam, personTitle;
+    private String personName, personTeam, personTitle; //Initialzing strings for each attribute
 
-    public String getPersonName()
-    {
+    /**
+     * GetPersonName Accessor Method
+     * Retrieves the person's name
+     * @return - person's name as a String
+     */
+    public String getPersonName() {
         return personName;
     }
-    //added a setName as there was no way previously to set a name
-    public void setPersonName(String personName){this.personName = personName;}
 
-    public String getPersonTeam()
-    {
+    /**
+     * SetPersonName Mutator Method
+     * Sets the person's name to a specified input
+     * @param personName - input person's name as a String
+     */
+    public void setPersonName(String personName) {
+        this.personName = personName;
+    }
+
+    /**
+     * GetPersonTeam Accessor Method
+     * Retrieves the person's team
+     * @return - person's team as a String
+     */
+    public String getPersonTeam() {
         return personTeam;
     }
-    //added a setTeam as there was no way previously to set a team
-    public void setPersonTeam(String personTeam){this.personTeam = personTeam;}
 
-    public String getPersonTitle()
-    {
+    /**
+     * SetPersonTeam Mutator Method
+     * Sets the person's team to a specified input
+     * @param personTeam - input person's team as a String
+     */
+    public void setPersonTeam(String personTeam) {
+        this.personTeam = personTeam;
+    }
+
+    /**
+     * GetPersonTitle Accessor Method
+     * Retrieves the person's title
+     * @return - person's title as a String
+     */
+    public String getPersonTitle() {
         return personTitle;
     }
 
+    /**
+     * SetPersonTitle Mutator Method
+     * Sets the person's title to a specified input
+     * @param personTitle - input person's title as a String
+     */
+    public void setPersonTitle(String personTitle) {
+        this.personTitle = personTitle;
+    }
 }

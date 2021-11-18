@@ -11,12 +11,12 @@
 package com.example.softwareengineering;
 
 public class ExportCommand extends Command {
+
     /**
      * ExportCommand Default constructor
      * Default constructor for the export command
      */
     public ExportCommand() {
-        System.out.println("[ERROR: Export Command] The export command subsystem has experienced an error.");
+        System.out.println("[DEBUG: Export] The subsystem has been successful.");
     }
-
 }

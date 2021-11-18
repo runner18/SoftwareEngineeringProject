@@ -77,7 +77,6 @@ public class Main extends Application {
          * ColorPicker Event Handler
          * Handles when the color picker button is clicked
          * Input: Value of selected color from color picker
-         * Returns: nothing
          */
         btnColorPicker.setOnAction(actionEvent -> {
             ColorPickerConverter cpc = new ColorPickerConverter();
@@ -87,8 +86,6 @@ public class Main extends Application {
         /**
          * Help Button Event Handler
          * Handles when the help button is clicked
-         * Input: void
-         * Returns: void
          */
         btnHelp.setOnAction(actionEvent -> {
             cmd.accessExternalSource("help"); //Calls "help" command utilizing the Command interface
@@ -97,8 +94,6 @@ public class Main extends Application {
         /**
          * Compare Button Event Handler
          * Handles when the compare button is clicked
-         * Input: void
-         * Returns: void
          */
         btnCompare.setOnAction(actionEvent -> {
             if (btnCompare.isSelected()) {  //Expands the menu if the button is selected
@@ -113,8 +108,6 @@ public class Main extends Application {
         /**
          * Insert Button Event Handler
          * Handles when the insert button is clicked
-         * Input: void
-         * Returns: void
          */
         btnInsertData.setOnAction(actionEvent -> {
             if (btnInsertData.isSelected()) {   //Expands the menu if the button is toggled
@@ -129,8 +122,6 @@ public class Main extends Application {
         /**
          * Compare Button Position Event Handler
          * Handles when the compare button position is changed (i.e. hitter to pitcher and vice versa)
-         * Input: void
-         * Returns: void
          */
         btnComparePosition.setOnAction(actionEvent -> {
             if (btnComparePosition.getValue() == "Pitcher") {   //Checks if the current comparison menu is pitcher
@@ -194,8 +185,6 @@ public class Main extends Application {
         /**
          * Export Shortcut Event Handler
          * Handles when the export command is activated (CTRL+E)
-         * Input: void
-         * Returns: void
          */
         scene.getAccelerators().put(KeyCombination.keyCombination("CTRL+E"), new Runnable() {   //Detects CTRL+E input
             @Override
@@ -208,8 +197,6 @@ public class Main extends Application {
     /**
      * Application Closing Event Handler
      * Handles when the application is closing and saves the data automatically
-     * Input: void
-     * Returns: void
      */
     @Override
     public void stop(){
@@ -220,8 +207,6 @@ public class Main extends Application {
     /**
      * Main
      * Handles the application's fundamental process
-     * Input: void
-     * Returns: void
      */
     public static void main(String[] args){
         launch();

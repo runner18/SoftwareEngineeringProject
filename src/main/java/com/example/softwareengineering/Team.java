@@ -16,7 +16,7 @@ import java.util.*;
  * A class meant to represent a physical team, relationship with Person
  */
 public class Team {
-    private String name, coachName; //Initializations
+    private String name, coachName; //Initializations of variables
     private int teamSize;
     private TeamStats teamStats;
     List<Person> players = new ArrayList<Person>(); //Array of all players within a given team

@@ -13,6 +13,7 @@ package com.example.softwareengineering;
 import javafx.scene.paint.Color;
 
 public class ColorPickerConverter {
+
     /**
      * Pass Method
      * Converts a passed Color object into a string HEX value

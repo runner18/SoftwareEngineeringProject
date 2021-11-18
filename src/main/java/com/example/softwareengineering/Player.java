@@ -11,7 +11,7 @@
 package com.example.softwareengineering;
 
 abstract class Player extends Person {
-    protected String playerNumber, playerPosition;  //Initializing variables
+    protected String playerNumber, playerPosition;  //Initializing String variables
 
     /**
      * Player Constructor

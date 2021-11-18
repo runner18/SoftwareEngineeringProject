@@ -15,7 +15,6 @@ import java.util.List;
 
 public class TeamStats {
     private double avgAverage, avgOBP, avgSLG, avgOPS, avgERA;  //Initializing all variable averages
-
     List<Person> players = new ArrayList<Person>(); //Initializing arraylist for all players within a team
 
     /**
