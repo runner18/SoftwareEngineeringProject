@@ -308,6 +308,7 @@ public class Controller {
                 txtInsertStatEight.clear();
                 txtInsertStatNine.clear();
                 txtInsertStatTen.clear();
+                return;
             }
 
             //strPosition is an array of characters (I'm not sure why you can't just have a single string)
