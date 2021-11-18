@@ -1,25 +1,21 @@
 package com.example.softwareengineering;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 public class TableIterator {
+    private StringBuilder sb = new StringBuilder();
     private static String[][] hitterInformation;
     private static String[][] pitcherInformation;
     private static int hitIndex = 0;
     private static int pitchIndex = 0;
-
-    private StringBuilder sb = new StringBuilder();
-
-    TableIterator(){
-    }
+    private String directory = "src/main/resources/com/example/softwareengineering/";
 
     public void writeToFile(){
         sb = new StringBuilder();
-        hitWriting("src/main/resources/com/example/softwareengineering/BattingStats.csv");
+        hitWriting(directory + "BattingStats.csv");
         sb = new StringBuilder();
-        pitchWriting("src/main/resources/com/example/softwareengineering/PitchingStats.csv");
+        pitchWriting(directory + "PitchingStats.csv");
     }
 
     public void setHitterInformation(String[][] hitterInformation){
@@ -112,6 +108,5 @@ public class TableIterator {
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
-
     }
 }

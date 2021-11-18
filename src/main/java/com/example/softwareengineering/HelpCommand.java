@@ -32,7 +32,7 @@ public class HelpCommand extends Command {
         Desktop d = Desktop.getDesktop();   //Allows access to Desktop to fetch browser
         try {
             d.browse(new URI(instructions));    //Access browser directly, redirecting to link
-        } catch (IOException | URISyntaxException error) {  //If an error occurs, throw it in Console
+        } catch (Exception e) {  //If an error occurs, throw it in Console
             System.out.println("[ERROR: Help Command] The help command subsystem has experienced an error.");
         }
     }
