@@ -33,7 +33,7 @@ public class Main extends Application {
 
         Command cmd = new Command();    //Initializing the Command interface
         String[] pitcher = {"IP", "W", "L", "CG", "R", "ER", "B13", "K", "HR", "H"};    //Array of pitcher stats
-        String[] hitter = {"H", "2B", "3B", "HR", "BB", "K", "AVG", "OBP", "SLG", "OPS"};   //Array of hitter stats
+        String[] hitter = {"AB", "H", "1B", "2B", "3B", "HR", "BB", "K", "HBP", ""};   //Array of hitter stats
 
         ToggleButton btnInsertData = (ToggleButton) scene.lookup("#btnInsertData"); //UI elements
         Button btnHelp = (Button) scene.lookup("#btnHelp");

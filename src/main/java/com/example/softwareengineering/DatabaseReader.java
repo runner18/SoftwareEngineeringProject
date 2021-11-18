@@ -148,15 +148,16 @@ public class DatabaseReader {
                 }
             }
         }
-        int totalLength = 0;
+        int totalLength = 1;
         for(int i = 0; i < teams.length; i++) {
             if (!teams[i].equals("")) {
                 totalLength++;
             }
         }
         String[] finalTeams = new String[totalLength];
-        for(int i = 0; i < totalLength; i++){
-            finalTeams[i] = teams[i];
+        finalTeams[0] = "All";
+        for(int i = 1; i < totalLength; i++){
+            finalTeams[i] = teams[i-1];
         }
         allTeams = finalTeams;
     }

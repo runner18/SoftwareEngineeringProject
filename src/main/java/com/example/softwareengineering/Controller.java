@@ -13,6 +13,11 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -124,8 +129,13 @@ public class Controller {
     TextField lblCompareStatNine;
     @FXML
     TextField lblCompareStatTen;
+    @FXML
+    Button btnExportData;
+    @FXML
+    ComboBox btnInsertPosition;
     String[] pitcher = {"IP", "W", "L", "CG", "R", "ER", "B13", "K", "HR", "H"};
-    String[] hitter = {"H", "2B", "3B", "HR", "BB", "K", "AVG", "OBP", "SLG", "OPS"};
+    String[] hitter = {"AB", "H", "1B", "2B", "3B", "HR", "BB", "K", "HBP", ""};
+    String[] positions = {"Pitcher", "Hitter"};
     
     public void initialize(){
         tblDisplayPitcherName.setCellValueFactory(new PropertyValueFactory<>("PlayerName"));
@@ -203,12 +213,40 @@ public class Controller {
         ObservableList<String> teamItems = FXCollections.observableArrayList(teamList);
         listViewDisplayTeams.setItems(teamItems);
 
-        btnInsertSubmit.setOnAction(actionEvent -> {
+        String[] empty = {"  ", " "};
+        Collection<String> emptyColl = new ArrayList<>(List.of(empty));
+        ObservableList<String> emptyList = FXCollections.observableArrayList(emptyColl);
 
-            //when this button is clicked, the setting is switched to the other type of player
-            //but isn't this the same button that submits the stats? that doesn't make sense - Diehl
-            if (btnInsertSubmit.getText() != "Submit Pitcher Stats") { //Checks to see which setting the btn is on
-                btnInsertSubmit.setText("Submit Pitcher Stats");
+        listViewDisplayTeams.setOnMouseClicked(actionEvent -> {
+            ObservableList<HitterModel> shortHitList = FXCollections.observableArrayList();
+            for(int i = 0; i < hit.length; i++) {
+                if (teams[listViewDisplayTeams.getSelectionModel().getSelectedIndex()].equals(hit[i].getPersonTeam())) {
+                    shortHitList.add(new HitterModel((Hitter) hit[i]));
+                }
+            }
+            if(teams[listViewDisplayTeams.getSelectionModel().getSelectedIndex()].equals("All")){
+                shortHitList = FXCollections.observableArrayList(hitList);
+            }
+            tblDisplayHitter.setItems(shortHitList);
+            ObservableList<PitcherModel> shortPitchList = FXCollections.observableArrayList();
+            for(int i = 0; i < pitch.length; i++){
+                if(teams[listViewDisplayTeams.getSelectionModel().getSelectedIndex()].equals(pitch[i].getPersonTeam())){
+                    shortPitchList.add(new PitcherModel((Pitcher) pitch[i]));
+                }
+            }
+            if(teams[listViewDisplayTeams.getSelectionModel().getSelectedIndex()].equals("All")){
+                shortPitchList = FXCollections.observableArrayList(pitchList);
+            }
+            tblDisplayPitcher.setItems(shortPitchList);
+        });
+
+        TableIterator insertion = new TableIterator();
+        Collection<String> positionList = new ArrayList<>(List.of(positions));
+        ObservableList<String> positionItems = FXCollections.observableArrayList(positionList);
+        btnInsertPosition.setItems(positionItems);
+
+        btnInsertPosition.setOnAction(actionEvent -> {
+            if (positions[btnInsertPosition.getSelectionModel().getSelectedIndex()].equals("Pitcher")) { //Checks to see which setting the btn is on
                 txtInsertStatOne.setPromptText(pitcher[0]);
                 txtInsertStatTwo.setPromptText(pitcher[1]);
                 txtInsertStatThree.setPromptText(pitcher[2]);
@@ -229,8 +267,8 @@ public class Controller {
                 TTEight .setText(pitcher[7]);
                 TTNine .setText(pitcher[8]);
                 TTTen .setText(pitcher[9]);
-            } else {
-                btnInsertSubmit.setText("Submit Hitter Stats");
+            }
+            else {
                 txtInsertStatOne.setPromptText(hitter[0]);
                 txtInsertStatTwo.setPromptText(hitter[1]);
                 txtInsertStatThree.setPromptText(hitter[2]);
@@ -252,8 +290,9 @@ public class Controller {
                 TTNine .setText(hitter[8]);
                 TTTen .setText(hitter[9]);
             }
+        });
 
-
+        btnInsertSubmit.setOnAction(actionEvent -> {
             //get the text typed into the submit stats fields
             String name = btnInsertName.getText();
             String team;
@@ -284,7 +323,6 @@ public class Controller {
             txtInsertStatEight.setText("");
             txtInsertStatNine.setText("");
             txtInsertStatTen.setText("");
-            char[] strPosition = btnInsertSubmit.getText().toCharArray();
             String position = "";
 
             if(stat1 <= 0 || stat2 <= 0 || stat2 <= 0 || stat3 <= 0 || stat4 <= 0 || stat5 <= 0 || stat6 <= 0 || stat7 <= 0 || stat8 <= 0 || stat9 <= 0 || stat10 <= 0)
@@ -311,18 +349,8 @@ public class Controller {
                 return;
             }
 
-            //strPosition is an array of characters (I'm not sure why you can't just have a single string)
-            //this array of characters spell out either "Hitter" or "Pitcher" depending on which type of player is submitted
-            for (int i = 0; i < strPosition.length; i++) {
-                if (strPosition[i] == 'H') {//This is backwards because we change the words first
-                    position = "pitcher";
-                    i = strPosition.length;
-                } else if (strPosition[i] == 'P') {//This is backwards because text changes first
-                    position = "hitter";
-                    i = strPosition.length;
-                }
-            }
-            if (position.equals("pitcher")) {
+            if (positions[btnInsertPosition.getSelectionModel().getSelectedIndex()].equalsIgnoreCase("pitcher")) {
+                position = "pitcher";
                 Player newPitch = new Pitcher(String.valueOf(pitch.length), position, stat1, stat2, stat3, stat4, stat5, stat6, stat7, stat8, stat9, stat10);
                 newPitch.setPersonName(name);
                 newPitch.setPersonTeam(team);
@@ -337,7 +365,8 @@ public class Controller {
                         System.out.println("Pressed OK.");
                     }
                 });
-            } else if (position.equals("hitter")) {
+            } else if (positions[btnInsertPosition.getSelectionModel().getSelectedIndex()].equalsIgnoreCase("hitter")) {
+                position = "hitter";
                 Player newHit = new Hitter(String.valueOf(hit.length), position, stat1, stat2, stat3, stat4, stat5, stat6, stat7, stat8, stat9);
                 newHit.setPersonName(name);
                 newHit.setPersonTeam(team);
@@ -366,7 +395,6 @@ public class Controller {
             tableIteratorInsert[8] = Double.toString(stat7);//Walks for both
             tableIteratorInsert[9] = Double.toString(stat8);//Strikeouts for both
             tableIteratorInsert[10] = Double.toString(stat9);//HitByPitch OR HomerunsAllowed
-            TableIterator insertion = new TableIterator();
             if(position.equals("pitcher")){
                 tableIteratorInsert[11] = Double.toString(stat10);//HitsAllowed
             }
@@ -392,10 +420,6 @@ public class Controller {
         Background backEmpty = new Background(fillEmpty);
         btnComparePlayerOne.setBackground(backOne);
         btnComparePlayerTwo.setBackground(backTwo);
-
-        String[] empty = {"  ", " "};
-        Collection<String> emptyColl = new ArrayList<>(List.of(empty));
-        ObservableList<String> emptyList = FXCollections.observableArrayList(emptyColl);
 
         Background[] colors = {backOne, backTwo, backEmpty};
 
@@ -512,5 +536,65 @@ public class Controller {
                 System.out.println("[ERROR: Player Comparison] The Player Comparison Subsystem has experienced an error.");
             }
         });
+
+        btnExportData.setOnAction(actionEvent -> {
+            //insertion.exportFile(fileToSave.getAbsolutePath());
+            System.out.println("Totally saved that file. Yep");
+
+        });
+    }
+    private void resetCols(String position){
+        if(position.equals("pitch")){
+            tblDisplayPitcherName.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayPitcherPosition.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayPitcherIP.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayPitcherW.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayPitcherL.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayPitcherCG.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayPitcherR.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayPitcherER.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayPitcherB13.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayPitcherK.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayPitcherHR.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayPitcherH.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayPitcherName.setCellValueFactory(new PropertyValueFactory<>("PlayerName"));
+            tblDisplayPitcherPosition.setCellValueFactory(new PropertyValueFactory<>("Position"));
+            tblDisplayPitcherIP.setCellValueFactory(new PropertyValueFactory<>("StatIP"));
+            tblDisplayPitcherW.setCellValueFactory(new PropertyValueFactory<>("StatW"));
+            tblDisplayPitcherL.setCellValueFactory(new PropertyValueFactory<>("StatL"));
+            tblDisplayPitcherCG.setCellValueFactory(new PropertyValueFactory<>("StatCG"));
+            tblDisplayPitcherR.setCellValueFactory(new PropertyValueFactory<>("StatR"));
+            tblDisplayPitcherER.setCellValueFactory(new PropertyValueFactory<>("StatER"));
+            tblDisplayPitcherB13.setCellValueFactory(new PropertyValueFactory<>("StatB13"));
+            tblDisplayPitcherK.setCellValueFactory(new PropertyValueFactory<>("StatK"));
+            tblDisplayPitcherHR.setCellValueFactory(new PropertyValueFactory<>("StatHR"));
+            tblDisplayPitcherH.setCellValueFactory(new PropertyValueFactory<>("StatH"));
+        }
+        else{
+            tblDisplayHitterName.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayHitterPosition.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayHitterH.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayHitter2B.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayHitter3B.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayHitterHR.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayHitterBB.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayHitterK.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayHitterAVG.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayHitterOBP.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayHitterOPS.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayHitterSLG.setCellValueFactory(new PropertyValueFactory<>(""));
+            tblDisplayHitterName.setCellValueFactory(new PropertyValueFactory<>("PlayerName"));
+            tblDisplayHitterPosition.setCellValueFactory(new PropertyValueFactory<>("Position"));
+            tblDisplayHitterH.setCellValueFactory(new PropertyValueFactory<>("Stat1B"));
+            tblDisplayHitter2B.setCellValueFactory(new PropertyValueFactory<>("Stat2B"));
+            tblDisplayHitter3B.setCellValueFactory(new PropertyValueFactory<>("Stat3B"));
+            tblDisplayHitterHR.setCellValueFactory(new PropertyValueFactory<>("StatHR"));
+            tblDisplayHitterBB.setCellValueFactory(new PropertyValueFactory<>("StatBB"));
+            tblDisplayHitterK.setCellValueFactory(new PropertyValueFactory<>("StatK"));
+            tblDisplayHitterAVG.setCellValueFactory(new PropertyValueFactory<>("StatAVG"));
+            tblDisplayHitterOBP.setCellValueFactory(new PropertyValueFactory<>("StatOBP"));
+            tblDisplayHitterOPS.setCellValueFactory(new PropertyValueFactory<>("StatOPS"));
+            tblDisplayHitterSLG.setCellValueFactory(new PropertyValueFactory<>("StatSLG"));
+        }
     }
 }

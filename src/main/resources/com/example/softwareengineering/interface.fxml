@@ -104,16 +104,16 @@
 
             <TextField fx:id="btnInsertName" prefHeight="25.0" prefWidth="90.0" promptText="Name" />
 
-            <TextField fx:id="txtInsertStatOne" prefWidth="40" promptText="H" />
-            <TextField fx:id="txtInsertStatTwo" prefWidth="40" promptText="2B" />
-            <TextField fx:id="txtInsertStatThree" prefWidth="40" promptText="3B" />
-            <TextField fx:id="txtInsertStatFour" prefWidth="40" promptText="HR" />
-            <TextField fx:id="txtInsertStatFive" prefWidth="40" promptText="BB" />
-            <TextField fx:id="txtInsertStatSix" prefWidth="40" promptText="K" />
-            <TextField fx:id="txtInsertStatSeven" prefWidth="40" promptText="AVG" />
-            <TextField fx:id="txtInsertStatEight" prefWidth="40" promptText="OBP" />
-            <TextField fx:id="txtInsertStatNine" prefWidth="40" promptText="SLG" />
-            <TextField fx:id="txtInsertStatTen" prefWidth="40" promptText="OPS" />
+            <TextField fx:id="txtInsertStatOne" prefWidth="40" promptText="AB" />
+            <TextField fx:id="txtInsertStatTwo" prefWidth="40" promptText="H" />
+            <TextField fx:id="txtInsertStatThree" prefWidth="40" promptText="1B" />
+            <TextField fx:id="txtInsertStatFour" prefWidth="40" promptText="2B" />
+            <TextField fx:id="txtInsertStatFive" prefWidth="40" promptText="3B" />
+            <TextField fx:id="txtInsertStatSix" prefWidth="40" promptText="HR" />
+            <TextField fx:id="txtInsertStatSeven" prefWidth="40" promptText="BB" />
+            <TextField fx:id="txtInsertStatEight" prefWidth="40" promptText="K" />
+            <TextField fx:id="txtInsertStatNine" prefWidth="40" promptText="HBP" />
+            <TextField fx:id="txtInsertStatTen" prefWidth="40" promptText="" />
             <Button fx:id="btnInsertSubmit" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Submit" />
         </items>
     </ToolBar>

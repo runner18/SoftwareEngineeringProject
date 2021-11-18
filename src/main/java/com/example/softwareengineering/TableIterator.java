@@ -1,6 +1,7 @@
 package com.example.softwareengineering;
 
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 
 public class TableIterator {
@@ -16,6 +17,20 @@ public class TableIterator {
         hitWriting(directory + "BattingStats.csv");
         sb = new StringBuilder();
         pitchWriting(directory + "PitchingStats.csv");
+    }
+
+    public void exportFile (String location){
+        for(int i = location.length() - 1; i > 0; i--){
+            System.out.println(location);
+            if(location.charAt(i) == '\\'){
+                location = location.substring(0, i);
+                i = 0;
+            }
+        }
+        sb = new StringBuilder();
+        hitWriting(location + "BattingStats.csv");
+        sb = new StringBuilder();
+        pitchWriting(location + "PitchingStats.csv");
     }
 
     public void setHitterInformation(String[][] hitterInformation){
@@ -100,12 +115,17 @@ public class TableIterator {
     }
 
     private void writing(String name) {
-        try (PrintWriter writer = new PrintWriter(name)) {
-            writer.write(sb.toString());
+        try{
+            FileWriter file = new FileWriter(name);
+            try (PrintWriter writer = new PrintWriter(file)) {
+                writer.write(sb.toString());
 
-            System.out.println("done!");
+                System.out.println("complete!");
 
-        } catch (FileNotFoundException e) {
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }catch(Exception e) {
             System.out.println(e.getMessage());
         }
     }
