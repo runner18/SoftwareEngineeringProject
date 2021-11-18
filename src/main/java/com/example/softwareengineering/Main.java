@@ -1,6 +1,7 @@
 /**
  * Softball Statistics Inventory Manager
  * Software to calculate and crunch various softball statistics to streamline the analysis process
+ * Main.java - Main Class
  * Course: Software Engineering
  * Instructor: Dr. Malik
  * Date: November 21, 2021
