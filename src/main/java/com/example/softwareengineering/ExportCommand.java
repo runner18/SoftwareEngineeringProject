@@ -16,7 +16,7 @@ public class ExportCommand extends Command {
      * Default constructor for the export command
      */
     public ExportCommand() {
-        System.out.println("[ERROR: Export Command] The export command subsystem has experienced an error. Data not saved.");
+        System.out.println("[ERROR: Export Command] The export command subsystem has experienced an error.");
     }
 
 }
