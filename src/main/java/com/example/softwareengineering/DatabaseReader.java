@@ -66,8 +66,7 @@ public class DatabaseReader {
             obj[j].setPersonTeam(words[j][1]);
             obj[j].setPersonName(words[j][0]);
         }
-        TableIterator hitter = new TableIterator();
-        hitter.setHitterInformation(words);
+        //
         return obj;
     }
 
@@ -104,8 +103,8 @@ public class DatabaseReader {
             obj[j].setPersonName(words[j][0]);
             obj[j].setPersonTeam(words[j][1]);
         }
-        TableIterator pitcher = new TableIterator();
-        pitcher.setPitcherInformation(words);
+        //TableIterator pitcher = new TableIterator();
+        //pitcher.setPitcherInformation(words);
         return obj;
 
 
