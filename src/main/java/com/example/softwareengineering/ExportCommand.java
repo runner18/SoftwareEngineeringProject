@@ -10,6 +10,11 @@
 
 package com.example.softwareengineering;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+
+import javax.swing.*;
+
 public class ExportCommand extends Command {
 
     /**
@@ -17,6 +22,23 @@ public class ExportCommand extends Command {
      * Default constructor for the export command
      */
     public ExportCommand() {
+        TableIterator insertion = new TableIterator();
         System.out.println("[DEBUG: Export] The subsystem has been successful.");
+        JFileChooser j = new JFileChooser("C:");
+
+        int r = j.showSaveDialog(null);
+
+        if (r == JFileChooser.APPROVE_OPTION) {
+            insertion.exportFile(j.getSelectedFile().getAbsolutePath());
+        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("File Export Attempt");
+        alert.setHeaderText("Success!");
+        alert.setContentText("Files have been saved in the specified location\nThey are named Batting and Pitching stats respectively");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+        });
     }
 }

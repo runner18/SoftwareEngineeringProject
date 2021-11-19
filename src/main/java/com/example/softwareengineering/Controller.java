@@ -535,7 +535,7 @@ public class Controller {
 
         //putting the data in a more accessible location
         btnExportData.setOnAction(actionEvent -> {
-            JFileChooser j = new JFileChooser("C:");
+            /*JFileChooser j = new JFileChooser("C:");
 
             int r = j.showSaveDialog(null);
 
@@ -550,7 +550,9 @@ public class Controller {
                 if (rs == ButtonType.OK) {
                     System.out.println("Pressed OK.");
                 }
-            });
+            });*/
+            Command export = new Command();
+            export.accessExternalSource("export");
         });
     }
 }
