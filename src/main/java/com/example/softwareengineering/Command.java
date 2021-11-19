@@ -25,10 +25,10 @@ public class Command {
      * @param command - call passed from User Interface of software
      */
     public void accessExternalSource(String command) {
-        if (command == "help") {    //Determines help command is called
+        if (command.equals("help")) {    //Determines help command is called
             HelpCommand help = new HelpCommand();   //Initializes HelpCommand
             help.desktopIntegration();  //Calls HelpCommand's desktop integration from the interface
-        } else if (command == "export") {   //Determines export command is called
+        } else if (command.equals("export")) {   //Determines export command is called
             ExportCommand export = new ExportCommand(); //Initializes ExportCommand
         }
     }
