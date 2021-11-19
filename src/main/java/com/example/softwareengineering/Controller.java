@@ -20,115 +20,22 @@ import java.util.List;
 
 public class Controller {
     @FXML
-    TableView tblDisplayPitcher;
+    TableView tblDisplayPitcher, tblDisplayHitter;
     @FXML
-    TableColumn tblDisplayPitcherName;
+    TableColumn tblDisplayPitcherName, tblDisplayPitcherPosition, tblDisplayPitcherIP, tblDisplayPitcherW, tblDisplayPitcherL, tblDisplayPitcherCG,
+                tblDisplayPitcherR, tblDisplayPitcherER, tblDisplayPitcherB13, tblDisplayPitcherK, tblDisplayPitcherHR, tblDisplayPitcherH,
+                tblDisplayHitterName, tblDisplayHitterPosition, tblDisplayHitterH, tblDisplayHitter2B, tblDisplayHitter3B, tblDisplayHitterHR,
+                tblDisplayHitterBB, tblDisplayHitterK, tblDisplayHitterAVG, tblDisplayHitterOBP, tblDisplayHitterSLG, tblDisplayHitterOPS;
     @FXML
-    TableColumn tblDisplayPitcherPosition;
+    ComboBox btnInsertTeam, btnComparePosition, btnComparePlayerOne, btnComparePlayerTwo, btnInsertPosition;
     @FXML
-    TableColumn tblDisplayPitcherIP;
+    Button btnInsertSubmit, btnExportData;
     @FXML
-    TableColumn tblDisplayPitcherW;
-    @FXML
-    TableColumn tblDisplayPitcherL;
-    @FXML
-    TableColumn tblDisplayPitcherCG;
-    @FXML
-    TableColumn tblDisplayPitcherR;
-    @FXML
-    TableColumn tblDisplayPitcherER;
-    @FXML
-    TableColumn tblDisplayPitcherB13;
-    @FXML
-    TableColumn tblDisplayPitcherK;
-    @FXML
-    TableColumn tblDisplayPitcherHR;
-    @FXML
-    TableColumn tblDisplayPitcherH;
-    @FXML
-    TableView tblDisplayHitter;
-    @FXML
-    TableColumn tblDisplayHitterName;
-    @FXML
-    TableColumn tblDisplayHitterPosition;
-    @FXML
-    TableColumn tblDisplayHitterH;
-    @FXML
-    TableColumn tblDisplayHitter2B;
-    @FXML
-    TableColumn tblDisplayHitter3B;
-    @FXML
-    TableColumn tblDisplayHitterHR;
-    @FXML
-    TableColumn tblDisplayHitterBB;
-    @FXML
-    TableColumn tblDisplayHitterK;
-    @FXML
-    TableColumn tblDisplayHitterAVG;
-    @FXML
-    TableColumn tblDisplayHitterOBP;
-    @FXML
-    TableColumn tblDisplayHitterSLG;
-    @FXML
-    TableColumn tblDisplayHitterOPS;
-    @FXML
-    ComboBox btnInsertTeam;
-    @FXML
-    Button btnInsertSubmit;
-    @FXML
-    TextField btnInsertName;
-    @FXML
-    TextField txtInsertStatOne;
-    @FXML
-    TextField txtInsertStatTwo;
-    @FXML
-    TextField txtInsertStatThree;
-    @FXML
-    TextField txtInsertStatFour;
-    @FXML
-    TextField txtInsertStatFive;
-    @FXML
-    TextField txtInsertStatSix;
-    @FXML
-    TextField txtInsertStatSeven;
-    @FXML
-    TextField txtInsertStatEight;
-    @FXML
-    TextField txtInsertStatNine;
-    @FXML
-    TextField txtInsertStatTen;
+    TextField btnInsertName, txtInsertStatOne, txtInsertStatTwo, txtInsertStatThree, txtInsertStatFour, txtInsertStatFive, txtInsertStatSix, txtInsertStatSeven, txtInsertStatEight, txtInsertStatNine, txtInsertStatTen,
+              lblCompareStatOne, lblCompareStatTwo, lblCompareStatThree, lblCompareStatFour, lblCompareStatFive, lblCompareStatSix, lblCompareStatSeven, lblCompareStatEight, lblCompareStatNine, lblCompareStatTen;
     @FXML
     ListView listViewDisplayTeams;
-    @FXML
-    ComboBox btnComparePosition;
-    @FXML
-    ComboBox btnComparePlayerOne;
-    @FXML
-    ComboBox btnComparePlayerTwo;
-    @FXML
-    TextField lblCompareStatOne;
-    @FXML
-    TextField lblCompareStatTwo;
-    @FXML
-    TextField lblCompareStatThree;
-    @FXML
-    TextField lblCompareStatFour;
-    @FXML
-    TextField lblCompareStatFive;
-    @FXML
-    TextField lblCompareStatSix;
-    @FXML
-    TextField lblCompareStatSeven;
-    @FXML
-    TextField lblCompareStatEight;
-    @FXML
-    TextField lblCompareStatNine;
-    @FXML
-    TextField lblCompareStatTen;
-    @FXML
-    Button btnExportData;
-    @FXML
-    ComboBox btnInsertPosition;
+
     String[] pitcher = {"IP", "W", "L", "CG", "R", "ER", "B13", "K", "HR", "H"};
     String[] hitter = {"AB", "H", "1B", "2B", "3B", "HR", "BB", "K", "HBP", ""};
     String[] positions = {"Pitcher", "Hitter"};
