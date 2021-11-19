@@ -30,7 +30,7 @@ public class Hitter extends Player {
      */
     public Hitter(String playerNumber, String playerPosition, double statAtBats, double statH, double stat1B, double stat2B, double stat3B, double statHR, double statBB, double statK, double statHBP) {
         super(playerNumber, playerPosition); //Super class utilizing number and position
-        this.statAtBats = statAtBats; //Initialzing all statistic variables
+        this.statAtBats = statAtBats; //Initializing all statistic variables
         this.statH = statH;
         this.stat1B = stat1B;
         this.stat2B = stat2B;
