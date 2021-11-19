@@ -23,17 +23,15 @@ public class ExportCommand extends Command {
      */
     public ExportCommand() {
         TableIterator insertion = new TableIterator();
-        System.out.println("[DEBUG: Export] The subsystem has been successful.");
-        JFileChooser j = new JFileChooser("C:");
-
+        JFileChooser j = new JFileChooser("C:"); //Stores the file into specified location
         int r = j.showSaveDialog(null);
-
-        if (r == JFileChooser.APPROVE_OPTION) {
+        if (r == JFileChooser.APPROVE_OPTION) { //Export file using external library methods
             insertion.exportFile(j.getSelectedFile().getAbsolutePath());
         }
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION); //Creates an alert popup
         alert.setTitle("File Export Attempt");
-        alert.setHeaderText("Success!");
+        alert.setHeaderText("Success!"); //Notificastion of success
         alert.setContentText("Files have been saved in the specified location\nThey are named Batting and Pitching stats respectively");
         alert.showAndWait().ifPresent(rs -> {
             if (rs == ButtonType.OK) {
