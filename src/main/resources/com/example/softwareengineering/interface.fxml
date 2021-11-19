@@ -9,7 +9,8 @@
         <items>
             <AnchorPane maxHeight="250.0" maxWidth="150.0" minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="100.0">
                 <children>
-                    <TitledPane fx:id="tblDisplayTeams" animated="false" collapsible="false" minWidth="150.0" prefHeight="160.0" prefWidth="300.0" text="Teams in League" textAlignment="CENTER">
+                    <TitledPane fx:id="tblDisplayTeams" animated="false" collapsible="false" contentDisplay="RIGHT" minWidth="150.0" prefHeight="160.0" prefWidth="300.0"
+                                text="Teams in League" textAlignment="CENTER">
                         <content>
                             <AnchorPane fx:id="tblDisplayTeam" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0">
                         <children>
@@ -68,7 +69,7 @@
                             <TableColumn fx:id="tblDisplayPitcherH" prefWidth="40" text="H" />
                         </columns>
                     </TableView>
-                <ToolBar fx:id="tbCompare" layoutX="639.0" orientation="VERTICAL" prefHeight="394.0" prefWidth="152.0">
+                <ToolBar fx:id="tbCompare" layoutX="639.0" orientation="VERTICAL" prefHeight="394.0" prefWidth="152.0" visible="false">
                     <items>
                         <ComboBox fx:id="btnComparePlayerOne" prefHeight="25.0" prefWidth="142.0" promptText="Player One" />
                         <ComboBox fx:id="btnComparePlayerTwo" layoutX="10.0" layoutY="16.0" prefHeight="25.0" prefWidth="142.0" promptText="Player Two" />
@@ -97,7 +98,7 @@
          <ColorPicker fx:id="btnColorPicker" layoutX="428.0" layoutY="18.0" prefHeight="30.0" prefWidth="154.0" />
         </items>
     </ToolBar>
-    <ToolBar fx:id="tbInsert" prefHeight="52.0" prefWidth="650.0">
+    <ToolBar fx:id="tbInsert" prefHeight="52.0" prefWidth="650.0" visible="false">
         <items>
             <ComboBox fx:id="btnInsertTeam" prefHeight="25.0" prefWidth="100.0" promptText="Team" />
          <ComboBox fx:id="btnInsertPosition" prefHeight="25.0" prefWidth="89.0" promptText="Position" />
