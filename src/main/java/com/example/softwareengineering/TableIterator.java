@@ -1,6 +1,5 @@
 package com.example.softwareengineering;
 
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 

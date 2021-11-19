@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class DatabaseReader {
 
-    //CSV over SQL because I could only find that the paid version supports SQL
+    //CSV over SQL because I could only find that the paid version supports SQL until well after this was working
     String location = "src/main/resources/com/example/softwareengineering/";
     String battingStats = "BattingStats.csv";
     String pitchingStats = "PitchingStats.csv";
