@@ -32,46 +32,14 @@ public class Main extends Application {
         stage.show();
 
         Command cmd = new Command();    //Initializing the Command interface
-        String[] pitcher = {"IP", "W", "L", "CG", "R", "ER", "B13", "K", "HR", "H"};    //Array of pitcher stats
-        String[] hitter = {"AB", "H", "1B", "2B", "3B", "HR", "BB", "K", "HBP", ""};   //Array of hitter stats
 
         ToggleButton btnInsertData = (ToggleButton) scene.lookup("#btnInsertData"); //UI elements
         Button btnHelp = (Button) scene.lookup("#btnHelp");
         ToggleButton btnCompare = (ToggleButton) scene.lookup("#btnCompare");
-        ComboBox btnComparePosition = (ComboBox) scene.lookup("#btnComparePosition");
-        TextField lblCompareStatOne = (TextField) scene.lookup("#lblCompareStatOne");
-        TextField lblCompareStatTwo = (TextField) scene.lookup("#lblCompareStatTwo");
-        TextField lblCompareStatThree = (TextField) scene.lookup("#lblCompareStatThree");
-        TextField lblCompareStatFour = (TextField) scene.lookup("#lblCompareStatFour");
-        TextField lblCompareStatFive = (TextField) scene.lookup("#lblCompareStatFive");
-        TextField lblCompareStatSix = (TextField) scene.lookup("#lblCompareStatSix");
-        TextField lblCompareStatSeven = (TextField) scene.lookup("#lblCompareStatSeven");
-        TextField lblCompareStatEight = (TextField) scene.lookup("#lblCompareStatEight");
-        TextField lblCompareStatNine = (TextField) scene.lookup("#lblCompareStatNine");
-        TextField lblCompareStatTen = (TextField) scene.lookup("#lblCompareStatTen");
         ToolBar tbInsert = (ToolBar) scene.lookup("#tbInsert");
         ToolBar tbCompare = (ToolBar) scene.lookup("#tbCompare");
         ColorPicker btnColorPicker = (ColorPicker) scene.lookup("#btnColorPicker");
-        Tooltip TTOne = new Tooltip("IP");
-        Tooltip TTTwo = new Tooltip("W");
-        Tooltip TTThree = new Tooltip("L");
-        Tooltip TTFour = new Tooltip("CG");
-        Tooltip TTFive = new Tooltip("R");
-        Tooltip TTSix = new Tooltip("ER");
-        Tooltip TTSeven = new Tooltip("B13");
-        Tooltip TTEight = new Tooltip("K");
-        Tooltip TTNine = new Tooltip("HR");
-        Tooltip TTTen = new Tooltip("H");
-        lblCompareStatOne.setTooltip(TTOne);
-        lblCompareStatTwo.setTooltip(TTTwo);
-        lblCompareStatThree.setTooltip(TTThree);
-        lblCompareStatFour.setTooltip(TTFour);
-        lblCompareStatFive.setTooltip(TTFive);
-        lblCompareStatSix.setTooltip(TTSix);
-        lblCompareStatSeven.setTooltip(TTSeven);
-        lblCompareStatEight.setTooltip(TTEight);
-        lblCompareStatNine.setTooltip(TTNine);
-        lblCompareStatTen.setTooltip(TTTen);
+
 
         /**
          * ColorPicker Event Handler
@@ -123,58 +91,6 @@ public class Main extends Application {
             } else {    //Reverts the menu expansion if the menu button is NOT toggled
                 stage.setHeight(330);
                 tbInsert.setVisible(false);
-            }
-        });
-
-        /**
-         * Compare Button Position Event Handler
-         * Handles when the compare button position is changed (i.e. hitter to pitcher and vice versa)
-         * Input: void
-         * Returns: void
-         */
-        btnComparePosition.setOnAction(actionEvent -> {
-            if (btnComparePosition.getValue() == "Pitcher") {   //Checks if the current comparison menu is pitcher
-                lblCompareStatOne.setPromptText(pitcher[0]);    //Sets prompt texts for each comparison textfield
-                lblCompareStatTwo.setPromptText(pitcher[1]);
-                lblCompareStatThree.setPromptText(pitcher[2]);
-                lblCompareStatFour.setPromptText(pitcher[3]);
-                lblCompareStatFive.setPromptText(pitcher[4]);
-                lblCompareStatSix.setPromptText(pitcher[5]);
-                lblCompareStatSeven.setPromptText(pitcher[6]);
-                lblCompareStatEight.setPromptText(pitcher[7]);
-                lblCompareStatNine.setPromptText(pitcher[8]);
-                lblCompareStatTen.setPromptText(pitcher[9]);
-                TTOne.setText(pitcher[0]);  //Sets tooltips for each comparison textfield
-                TTTwo.setText(pitcher[1]);
-                TTThree.setText(pitcher[2]);
-                TTFour.setText(pitcher[3]);
-                TTFive.setText(pitcher[4]);
-                TTSix.setText(pitcher[5]);
-                TTSeven.setText(pitcher[6]);
-                TTEight.setText(pitcher[7]);
-                TTNine.setText(pitcher[8]);
-                TTTen.setText(pitcher[9]);
-            } else {    //Checks if the current comparison menu is hitter
-                lblCompareStatOne.setPromptText(hitter[0]); //Sets prompt texts for each comparison textfield
-                lblCompareStatTwo.setPromptText(hitter[1]);
-                lblCompareStatThree.setPromptText(hitter[2]);
-                lblCompareStatFour.setPromptText(hitter[3]);
-                lblCompareStatFive.setPromptText(hitter[4]);
-                lblCompareStatSix.setPromptText(hitter[5]);
-                lblCompareStatSeven.setPromptText(hitter[6]);
-                lblCompareStatEight.setPromptText(hitter[7]);
-                lblCompareStatNine.setPromptText(hitter[8]);
-                lblCompareStatTen.setPromptText(hitter[9]);
-                TTOne.setText(hitter[0]);  //Sets tooltips for each comparison textfield
-                TTTwo.setText(hitter[1]);
-                TTThree.setText(hitter[2]);
-                TTFour.setText(hitter[3]);
-                TTFive.setText(hitter[4]);
-                TTSix.setText(hitter[5]);
-                TTSeven.setText(hitter[6]);
-                TTEight.setText(hitter[7]);
-                TTNine.setText(hitter[8]);
-                TTTen.setText(hitter[9]);
             }
         });
 

@@ -13,7 +13,6 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -36,9 +35,10 @@ public class Controller {
     @FXML
     ListView listViewDisplayTeams;
 
-    String[] pitcher = {"IP", "W", "L", "CG", "R", "ER", "B13", "K", "HR", "H"};
-    String[] hitter = {"AB", "H", "1B", "2B", "3B", "HR", "BB", "K", "HBP", ""};
-    String[] positions = {"Pitcher", "Hitter"};
+    String[] pitcher = {"IP", "W", "L", "CG", "R", "ER", "B13", "K", "HR", "H"}; //Array of pitcher stat abbreviations
+    String[] hitter = {"AB", "H", "1B", "2B", "3B", "HR", "BB", "K", "HBP", ""}; //Array of hitter stat abbreviations
+    String[] hitterCompare = {"H", "2B", "3B", "HR", "BB", "K", "AVG", "OBP", "SLG","OPS"}; //Array of hitter comparison stat abbreviations
+    String[] positions = {"Pitcher", "Hitter"}; //Array of possible positions
     
     public void initialize(){
         tblDisplayPitcherName.setCellValueFactory(new PropertyValueFactory<>("PlayerName"));
@@ -54,16 +54,16 @@ public class Controller {
         tblDisplayPitcherHR.setCellValueFactory(new PropertyValueFactory<>("StatHR"));
         tblDisplayPitcherH.setCellValueFactory(new PropertyValueFactory<>("StatH"));
 
-        Tooltip TTOne = new Tooltip(hitter[0]);
-        Tooltip TTTwo = new Tooltip(hitter[1]);
-        Tooltip TTThree = new Tooltip(hitter[2]);
-        Tooltip TTFour = new Tooltip(hitter[3]);
-        Tooltip TTFive = new Tooltip(hitter[4]);
-        Tooltip TTSix = new Tooltip(hitter[5]);
-        Tooltip TTSeven = new Tooltip(hitter[6]);
-        Tooltip TTEight = new Tooltip(hitter[7]);
-        Tooltip TTNine = new Tooltip(hitter[8]);
-        Tooltip TTTen = new Tooltip(hitter[9]);
+        Tooltip TTOne = new Tooltip(pitcher[0]);
+        Tooltip TTTwo = new Tooltip(pitcher[1]);
+        Tooltip TTThree = new Tooltip(pitcher[2]);
+        Tooltip TTFour = new Tooltip(pitcher[3]);
+        Tooltip TTFive = new Tooltip(pitcher[4]);
+        Tooltip TTSix = new Tooltip(pitcher[5]);
+        Tooltip TTSeven = new Tooltip(pitcher[6]);
+        Tooltip TTEight = new Tooltip(pitcher[7]);
+        Tooltip TTNine = new Tooltip(pitcher[8]);
+        Tooltip TTTen = new Tooltip(pitcher[9]);
         txtInsertStatOne.setTooltip(TTOne);
         txtInsertStatTwo.setTooltip(TTTwo);
         txtInsertStatThree.setTooltip(TTThree);
@@ -74,6 +74,16 @@ public class Controller {
         txtInsertStatEight.setTooltip(TTEight);
         txtInsertStatNine.setTooltip(TTNine);
         txtInsertStatTen.setTooltip(TTTen);
+        lblCompareStatOne.setTooltip(TTOne);
+        lblCompareStatTwo.setTooltip(TTTwo);
+        lblCompareStatThree.setTooltip(TTThree);
+        lblCompareStatFour.setTooltip(TTFour);
+        lblCompareStatFive.setTooltip(TTFive);
+        lblCompareStatSix.setTooltip(TTSix);
+        lblCompareStatSeven.setTooltip(TTSeven);
+        lblCompareStatEight.setTooltip(TTEight);
+        lblCompareStatNine.setTooltip(TTNine);
+        lblCompareStatTen.setTooltip(TTTen);
 
         DatabaseReader reader = new DatabaseReader();
         Player[] pitch = reader.getStats("p");
@@ -326,6 +336,12 @@ public class Controller {
 
         Background[] colors = {backOne, backTwo, backEmpty};
 
+        /**
+         * Compare Button Position Event Handler
+         * Handles when the compare button position is changed (i.e. hitter to pitcher and vice versa)
+         * Input: void
+         * Returns: void
+         */
         btnComparePosition.setOnAction(actionEvent -> {
             btnComparePlayerOne.setItems(emptyList);
             btnComparePlayerTwo.setItems(emptyList);
@@ -349,11 +365,51 @@ public class Controller {
             lblCompareStatNine.setBackground(colors[2]);
             lblCompareStatTen.setText("");
             lblCompareStatTen.setBackground(colors[2]);
-            if(btnComparePosition.getSelectionModel().getSelectedItem().toString().equals("Pitcher")){
+            if(btnComparePosition.getSelectionModel().getSelectedItem().toString().equals("Pitcher")){   //Checks if the current comparison menu is pitcher
+                lblCompareStatOne.setPromptText(pitcher[0]);    //Sets prompt texts for each comparison textfield
+                lblCompareStatTwo.setPromptText(pitcher[1]);
+                lblCompareStatThree.setPromptText(pitcher[2]);
+                lblCompareStatFour.setPromptText(pitcher[3]);
+                lblCompareStatFive.setPromptText(pitcher[4]);
+                lblCompareStatSix.setPromptText(pitcher[5]);
+                lblCompareStatSeven.setPromptText(pitcher[6]);
+                lblCompareStatEight.setPromptText(pitcher[7]);
+                lblCompareStatNine.setPromptText(pitcher[8]);
+                lblCompareStatTen.setPromptText(pitcher[9]);
+                TTOne.setText(pitcher[0]);  //Sets tooltips for each comparison textfield
+                TTTwo.setText(pitcher[1]);
+                TTThree.setText(pitcher[2]);
+                TTFour.setText(pitcher[3]);
+                TTFive.setText(pitcher[4]);
+                TTSix.setText(pitcher[5]);
+                TTSeven.setText(pitcher[6]);
+                TTEight.setText(pitcher[7]);
+                TTNine.setText(pitcher[8]);
+                TTTen.setText(pitcher[9]);
                 btnComparePlayerOne.setItems(pitchOList);
                 btnComparePlayerTwo.setItems(pitchOList);
             }
-            else {
+            else {    //Checks if the current comparison menu is hitter
+                lblCompareStatOne.setPromptText(hitterCompare[0]); //Sets prompt texts for each comparison textfield
+                lblCompareStatTwo.setPromptText(hitterCompare[1]);
+                lblCompareStatThree.setPromptText(hitterCompare[2]);
+                lblCompareStatFour.setPromptText(hitterCompare[3]);
+                lblCompareStatFive.setPromptText(hitterCompare[4]);
+                lblCompareStatSix.setPromptText(hitterCompare[5]);
+                lblCompareStatSeven.setPromptText(hitterCompare[6]);
+                lblCompareStatEight.setPromptText(hitterCompare[7]);
+                lblCompareStatNine.setPromptText(hitterCompare[8]);
+                lblCompareStatTen.setPromptText(hitterCompare[9]);
+                TTOne.setText(hitterCompare[0]);  //Sets tooltips for each comparison textfield
+                TTTwo.setText(hitterCompare[1]);
+                TTThree.setText(hitterCompare[2]);
+                TTFour.setText(hitterCompare[3]);
+                TTFive.setText(hitterCompare[4]);
+                TTSix.setText(hitterCompare[5]);
+                TTSeven.setText(hitterCompare[6]);
+                TTEight.setText(hitterCompare[7]);
+                TTNine.setText(hitterCompare[8]);
+                TTTen.setText(hitterCompare[9]);
                 btnComparePlayerOne.setItems(hitOList);
                 btnComparePlayerTwo.setItems(hitOList);
             }

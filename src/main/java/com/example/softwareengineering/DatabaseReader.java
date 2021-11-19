@@ -10,59 +10,51 @@ public class DatabaseReader {
     String battingStats = "BattingStats.csv";
     String pitchingStats = "PitchingStats.csv";
     static String[] allTeams;
+
     public DatabaseReader(){}
 
-    //Returns the full array of batters or pitchers from the database
+    /**
+     * GetStatsMethod
+     * Returns the full array of batters or pitchers from the database
+     * @param name - call passed from User Interface of software
+     */
     public Player[] getStats(String name){
-        try {
-            FileReader stats;
+        try {//A safeguard in case errors occur when accessing files for reading
             Player[] values;//Should be able to hold either an array of Hitters or Pitchers
-            if (name.equals("b")) {
-                stats = new FileReader(location + battingStats);
-                values = getBatters(stats);
+            if (name.equals("b")) {//checks if the wanted array is batters or pitchers
+                values = getBatters(new FileReader(location + battingStats));//sets the returning array to a set of hitter objects
+            } else {//there are only 2 possible inputs
+                values = getPitchers(new FileReader(location + pitchingStats));//sets the returning array to a set of pitcher objects
             }
-            else {
-                stats = new FileReader(location + pitchingStats);
-                values = getPitchers(stats);
-            }
-            return values;
-        } catch (Exception e){
-            e.printStackTrace();
-            return null;
+            return values;//returns the now filled player array
+        } catch (Exception e){//the output for when an error occurs
+            e.printStackTrace();//a record of what the specific error is when something went wrong
+            return null;//a return value is always needed to exit the function, even in case of errors
         }
     }
 
-    //batter stats array, the array values are numbered for the correct ones (there is also extra information
-    //for further use)
-    public Hitter[] getBatters(FileReader stats){
-        String line;
-        String splitBy = ",";
-        BufferedReader br = new BufferedReader(stats);
-        int i = 0;
-        String[][] words = new String[400][];
-        try {
-            while ((line = br.readLine()) != null) {
-                words[i] = line.split(splitBy);
-                i++;
+    /**
+     * GetHittersMethod
+     * Translates the data from the database file into a usable array of Hitter objects
+     * @param stats - A filereader object with the location of where the database file is and what it is named
+     */
+    private Hitter[] getBatters(FileReader stats){
+        String line;//A string to be used for temporarily holding information from the database until it can be formatted for an array
+        String splitBy = ",";//the splitting point for different pieces of information from the database
+        BufferedReader br = new BufferedReader(stats);//creating a buffered reader for reading in the FileReader stats
+        int i = 0;//initialising the counter for tracking the size of the following array
+        String[][] words = new String[100][];//initialising a 2 dimensional String array for storing player information from the file
+        try {//ensuring the program does not fail upon a bad read of the database file
+            while ((line = br.readLine()) != null) {//making sure there is more data to be read
+                words[i++] = line.split(splitBy);//separating the information for each player into an array and then incrementing the counter
             }
-        } catch (Exception e) {
-            System.out.println("Something broke batterson");
+        } catch (Exception e) {//the result if there is an error from the database file
+            e.printStackTrace();//the output if there is an error
         }
 
         Hitter[] obj = new Hitter[i];
         for(int j =0; j < i; j++){
-            obj[j] = new Hitter(j + "",
-                    "hitter",
-                    0 + Double.parseDouble(words[j][2]),
-                    0 + Double.parseDouble(words[j][3]),
-                    0 + Double.parseDouble(words[j][4]),
-                    0 + Double.parseDouble(words[j][5]),
-                    0 + Double.parseDouble(words[j][6]),
-                    0 + Double.parseDouble(words[j][7]),
-                    0 + Double.parseDouble(words[j][8]),
-                    0 + Double.parseDouble(words[j][9]),
-                    0 + Double.parseDouble(words[j][10]));
-
+            obj[j] = new Hitter(j + "", "hitter", Double.parseDouble(words[j][2]), Double.parseDouble(words[j][3]), Double.parseDouble(words[j][4]), Double.parseDouble(words[j][5]), Double.parseDouble(words[j][6]), Double.parseDouble(words[j][7]), Double.parseDouble(words[j][8]), Double.parseDouble(words[j][9]), Double.parseDouble(words[j][10]));
             obj[j].setPersonTeam(words[j][1]);
             obj[j].setPersonName(words[j][0]);
         }
@@ -72,21 +64,24 @@ public class DatabaseReader {
         return obj;
     }
 
-    //batter stats array, the array values are numbered for the correct ones (there is also extra information
-    //for further use)
-    public Pitcher[] getPitchers(FileReader stats){
+    /**
+     * GetPitchersMethod
+     * Translates the data from the database file into a usable array of Pitcher objects
+     * @param stats - A filereader object with the location of where the database file is and what it is named
+     */
+    private Pitcher[] getPitchers(FileReader stats){
         String line;
         String splitBy = ",";
         BufferedReader br = new BufferedReader(stats);
         int i = 0;
-        String[][] words = new String[40][];
+        String[][] words = new String[100][];
         try {
             while ((line = br.readLine()) != null) {
                 words[i] = line.split(splitBy);
                 i++;
             }
         } catch (Exception e) {
-            System.out.println("Something broke pitcherson");
+            e.printStackTrace();
         }
         Pitcher[] obj = new Pitcher[i];
         for(int j = 0; j < i; j++) {
