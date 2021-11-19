@@ -1,3 +1,13 @@
+/**
+ * Softball Statistics Inventory Manager
+ * Software to calculate and crunch various softball statistics to streamline the analysis process
+ * HitterModel.java - implements a Pitcher's statistics into their object and provides relevant operations
+ * Course: Software Engineering
+ * Instructor: Dr. Malik
+ * Date: November 21, 2021
+ * Authors: Thane Class, Alex Diehl, Alex Duke, and Stacey Walters
+ */
+
 package com.example.softwareengineering;
 
 import javafx.beans.property.SimpleDoubleProperty;
