@@ -49,11 +49,11 @@ public class TableIterator {
     public void setHitterInformation(String[][] hitterInformation){
         this.hitterInformation = hitterInformation;//Setting the global variable to the passed information
         for(int i = 0; i < hitterInformation.length; i++){//looping through the array to find the correct length
-            try {//watching for mullInformation errors
+            try {//watching for nullInformation errors
                 if (!hitterInformation[i][0].equals(null)) {//watching for information that is not the end of the array
                     hitIndex++;//increasing the global variable index of the hitterInformation array
                 }
-            }catch(Exception e){e.printStackTrace();}//printing out errors found if needed
+            }catch(Exception e){}
         }
     }
 
@@ -102,13 +102,13 @@ public class TableIterator {
                         i = hitterInformation.length;
                         j = 11;
                     }
-                }catch(Exception e){e.printStackTrace();}//print out any errors if needed
+                }catch(Exception e){}
             }
             try {//watching for nullInformation errors
                 if (!hitterInformation[i][0].equals(null)) {//Looking for a nonNull point
                     sb.append('\n');//Adding a breakline to the StringBuilder to help format the upcoming printed file
                 }
-            }catch(Exception e){e.printStackTrace();}//print out any errors if needed
+            }catch(Exception e){}
         }
     }
 
@@ -126,13 +126,13 @@ public class TableIterator {
                         i = pitcherInformation.length;
                         j = 11;
                     }
-                }catch(Exception e){e.printStackTrace();}//print out any errors if needed
+                }catch(Exception e){}
             }
             try {//watching for nullInformation errors
                 if (!pitcherInformation[i][0].equals(null)) {//Looking for a nonNull point
                     sb.append('\n');//Adding a breakline to the StringBuilder to help format the upcoming printed file
                 }
-            } catch (Exception e){e.printStackTrace();}//print out any errors if needed
+            } catch (Exception e){}
         }
     }
 
