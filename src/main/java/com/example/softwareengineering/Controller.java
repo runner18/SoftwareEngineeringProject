@@ -105,10 +105,10 @@ public class Controller {
         DatabaseReader reader = new DatabaseReader(); //Creates a database reader
         Player[] pitch = reader.getStats("p"); //Reads through pitcher stats
         String[] pitchNames = new String[pitch.length]; //Creates a String array with n length (dependent on # of pitchers)
-        ObservableList<PitcherModel> pitchList = FXCollections.observableArrayList();
+        ObservableList<PitcherModel> pitchList = FXCollections.observableArrayList();//creating a new ObservableList of PitcherModels
         for(int i = 0; i < pitch.length; i++) { //Iterates the entire pitcher list
-            pitchList.add(new PitcherModel((Pitcher) pitch[i])); //Adds the current index to the list
-            pitchNames[i] = pitch[i].getPersonName(); //Adds the current index's name to the array
+            pitchList.add(new PitcherModel((Pitcher) pitch[i])); //Adds the current index to the ObservableList
+            pitchNames[i] = pitch[i].getPersonName(); //Adds the current player's name to the array of names
         }
         tblDisplayPitcher.setItems(pitchList); //Display all pitchers
 
@@ -127,12 +127,12 @@ public class Controller {
 
         Player[] hit = reader.getStats("b"); //Reads through pitcher stats
         String[] hitNames = new String[hit.length]; //Creates a String array with n length (dependent on # of pitchers)
-        ObservableList<HitterModel> hitList = FXCollections.observableArrayList();
-        for(int i = 0; i < hit.length; i++) { //Iterates the entire pitcher list
-            hitList.add(new HitterModel((Hitter) hit[i])); //Adds the current index to the list
-            hitNames[i] = hit[i].getPersonName(); //Adds the current index's name to the array
+        ObservableList<HitterModel> hitList = FXCollections.observableArrayList();//creating a new ObservableList of PitcherModels
+        for(int i = 0; i < hit.length; i++) { //Iterates the entire hit list
+            hitList.add(new HitterModel((Hitter) hit[i])); //Adds the current index to the ObservableList
+            hitNames[i] = hit[i].getPersonName(); //Adds the current player's name to the array
         }
-        tblDisplayHitter.setItems(hitList); //Display all Hitter
+        tblDisplayHitter.setItems(hitList); //Display all Hitters
 
         reader.setTeams(hit, pitch); //Sets the teams with both pitchers and hitters
         String[] teams = reader.getTeams(); //Creates string array of all teams
@@ -140,7 +140,7 @@ public class Controller {
         Collection<String> teamList = new ArrayList<>(List.of(teams)); //Adds all teams to a collection
         btnInsertTeam.getItems().addAll(teamList); //Inserts collection into UI
 
-        ObservableList<String> teamItems = FXCollections.observableArrayList(teamList); //Creates list for all teams
+        ObservableList<String> teamItems = FXCollections.observableArrayList(teamList); //Creates an ObservableList for all teams
         listViewDisplayTeams.setItems(teamItems); //Inserts collection into UI
 
         String[] empty = {"  ", " "}; //Creates an empty string for placeholders and emptyList
@@ -159,14 +159,14 @@ public class Controller {
                 }
             }
             if (teams[listViewDisplayTeams.getSelectionModel().getSelectedIndex()].equals("All")) { //All teams filtering
-                shortHitList = FXCollections.observableArrayList(hitList); //Update the hitlist to include ALL teams
+                shortHitList = FXCollections.observableArrayList(hitList); //Update the shortHitlist to include ALL teams
             }
             tblDisplayHitter.setItems(shortHitList); //Display the shortened/filtered hit list
             ObservableList<PitcherModel> shortPitchList = FXCollections.observableArrayList();
 
             for(int i = 0; i < pitch.length; i++) { //Iterates through the complete list
                 if (teams[listViewDisplayTeams.getSelectionModel().getSelectedIndex()].equals(pitch[i].getPersonTeam())) {
-                    shortPitchList.add(new PitcherModel((Pitcher) pitch[i])); //Iterates through the complete list
+                    shortPitchList.add(new PitcherModel((Pitcher) pitch[i])); //Update the shortPitchlist to include ALL teams
                 }
             }
             if(teams[listViewDisplayTeams.getSelectionModel().getSelectedIndex()].equals("All")){ //All teams filtering
@@ -178,7 +178,7 @@ public class Controller {
         TableIterator insertion = new TableIterator(); //Creates a TableIterator to insert each position into ComboBox
         Collection<String> positionList = new ArrayList<>(List.of(positions)); //Creates a list of positions to implment into the UI
         ObservableList<String> positionItems = FXCollections.observableArrayList(positionList);
-        btnInsertPosition.setItems(positionItems);
+        btnInsertPosition.setItems(positionItems);//sets the items available to the user in the btnInsertPosition ComboBox
 
         /**
          * InsertPosition Event Handler
@@ -362,7 +362,7 @@ public class Controller {
                 tableIteratorInsert[11] = Double.toString(stat10);//HitsAllowed
             }
 
-            insertion.insertInfo(position, tableIteratorInsert);
+            insertion.insertInfo(position, tableIteratorInsert);//Setting the new player into the TableIterator for file writing purposes
         });
 
         Collection<String> positions = new ArrayList<>(); //Creates an array list of two positions
