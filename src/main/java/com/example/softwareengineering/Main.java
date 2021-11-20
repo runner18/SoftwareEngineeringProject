@@ -15,7 +15,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
@@ -45,7 +44,6 @@ public class Main extends Application {
          * ColorPicker Event Handler
          * Handles when the color picker button is clicked
          * Input: Value of selected color from color picker
-         * Returns: nothing
          */
         btnColorPicker.setOnAction(actionEvent -> {
             ColorPickerConverter cpc = new ColorPickerConverter();
@@ -55,8 +53,6 @@ public class Main extends Application {
         /**
          * Help Button Event Handler
          * Handles when the help button is clicked
-         * Input: void
-         * Returns: void
          */
         btnHelp.setOnAction(actionEvent -> {
             cmd.accessExternalSource("help"); //Calls "help" command utilizing the Command interface
@@ -65,12 +61,10 @@ public class Main extends Application {
         /**
          * Compare Button Event Handler
          * Handles when the compare button is clicked
-         * Input: void
-         * Returns: void
          */
         btnCompare.setOnAction(actionEvent -> {
             if (btnCompare.isSelected()) {  //Expands the menu if the button is selected
-                stage.setWidth(950);
+                stage.setWidth(955);
                 tbCompare.setVisible(true);
             } else {    //Reverts the menu expansion if the button is NOT selected
                 stage.setWidth(800);
@@ -81,8 +75,6 @@ public class Main extends Application {
         /**
          * Insert Button Event Handler
          * Handles when the insert button is clicked
-         * Input: void
-         * Returns: void
          */
         btnInsertData.setOnAction(actionEvent -> {
             if (btnInsertData.isSelected()) {   //Expands the menu if the button is toggled
@@ -98,7 +90,6 @@ public class Main extends Application {
          * Help Shortcut Event Handler
          * Handles when the help command shortcut is activated (CTRL+H)
          * Input: CTRL+H
-         * Returns: void
          */
         scene.getAccelerators().put(KeyCombination.keyCombination("CTRL+H"), new Runnable() {   //Detects CTRL+H input
             @Override
@@ -110,8 +101,6 @@ public class Main extends Application {
         /**
          * Export Shortcut Event Handler
          * Handles when the export command is activated (CTRL+E)
-         * Input: void
-         * Returns: void
          */
         scene.getAccelerators().put(KeyCombination.keyCombination("CTRL+E"), new Runnable() {   //Detects CTRL+E input
             @Override
@@ -124,8 +113,6 @@ public class Main extends Application {
     /**
      * Application Closing Event Handler
      * Handles when the application is closing and saves the data automatically
-     * Input: void
-     * Returns: void
      */
     @Override
     public void stop(){
@@ -136,8 +123,6 @@ public class Main extends Application {
     /**
      * Main
      * Handles the application's fundamental process
-     * Input: void
-     * Returns: void
      */
     public static void main(String[] args){
         launch();
