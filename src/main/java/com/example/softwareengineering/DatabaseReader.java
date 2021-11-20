@@ -107,8 +107,13 @@ public class DatabaseReader {
 
     }
 
-    //return a list of teams using all players in the database
-    public void setTeams(Player[] hitters, Player[]pitchers){
+    /**
+     * SetTeams Mutator Method
+     * Return a list of teams using all players in the database
+     * @param hitters - player array of all hitters
+     * @param pitchers - player array of all pitchers
+     */
+    public void setTeams(Player[] hitters, Player[] pitchers){
         String[] teams = new String[hitters.length+pitchers.length];
         Arrays.fill(teams, "");
         for(int i = 0; i < hitters.length; i++){

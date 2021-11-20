@@ -31,16 +31,16 @@ public class Controller {
     TableView tblDisplayPitcher, tblDisplayHitter;  //Initializing all UI elements
     @FXML
     TableColumn tblDisplayPitcherName, tblDisplayPitcherPosition, tblDisplayPitcherIP, tblDisplayPitcherW, tblDisplayPitcherL, tblDisplayPitcherCG,
-                tblDisplayPitcherR, tblDisplayPitcherER, tblDisplayPitcherB13, tblDisplayPitcherK, tblDisplayPitcherHR, tblDisplayPitcherH,
-                tblDisplayHitterName, tblDisplayHitterPosition, tblDisplayHitterH, tblDisplayHitter2B, tblDisplayHitter3B, tblDisplayHitterHR,
-                tblDisplayHitterBB, tblDisplayHitterK, tblDisplayHitterAVG, tblDisplayHitterOBP, tblDisplayHitterSLG, tblDisplayHitterOPS;
+            tblDisplayPitcherR, tblDisplayPitcherER, tblDisplayPitcherB13, tblDisplayPitcherK, tblDisplayPitcherHR, tblDisplayPitcherH,
+            tblDisplayHitterName, tblDisplayHitterPosition, tblDisplayHitterH, tblDisplayHitter2B, tblDisplayHitter3B, tblDisplayHitterHR,
+            tblDisplayHitterBB, tblDisplayHitterK, tblDisplayHitterAVG, tblDisplayHitterOBP, tblDisplayHitterSLG, tblDisplayHitterOPS;
     @FXML
     ComboBox btnInsertTeam, btnComparePosition, btnComparePlayerOne, btnComparePlayerTwo, btnInsertPosition;
     @FXML
     Button btnInsertSubmit, btnExportData;
     @FXML
     TextField btnInsertName, txtInsertStatOne, txtInsertStatTwo, txtInsertStatThree, txtInsertStatFour, txtInsertStatFive, txtInsertStatSix, txtInsertStatSeven, txtInsertStatEight, txtInsertStatNine, txtInsertStatTen,
-              lblCompareStatOne, lblCompareStatTwo, lblCompareStatThree, lblCompareStatFour, lblCompareStatFive, lblCompareStatSix, lblCompareStatSeven, lblCompareStatEight, lblCompareStatNine, lblCompareStatTen;
+            lblCompareStatOne, lblCompareStatTwo, lblCompareStatThree, lblCompareStatFour, lblCompareStatFive, lblCompareStatSix, lblCompareStatSeven, lblCompareStatEight, lblCompareStatNine, lblCompareStatTen;
     @FXML
     ListView listViewDisplayTeams;
 
@@ -81,6 +81,26 @@ public class Controller {
         Tooltip TTEight = new Tooltip(pitcher[7]);
         Tooltip TTNine = new Tooltip(pitcher[8]);
         Tooltip TTTen = new Tooltip(pitcher[9]);
+        txtInsertStatOne.setTooltip(TTOne);
+        txtInsertStatTwo.setTooltip(TTTwo);
+        txtInsertStatThree.setTooltip(TTThree);
+        txtInsertStatFour.setTooltip(TTFour);
+        txtInsertStatFive.setTooltip(TTFive);
+        txtInsertStatSix.setTooltip(TTSix);
+        txtInsertStatSeven.setTooltip(TTSeven);
+        txtInsertStatEight.setTooltip(TTEight);
+        txtInsertStatNine.setTooltip(TTNine);
+        txtInsertStatTen.setTooltip(TTTen);
+        lblCompareStatOne.setTooltip(TTOne);
+        lblCompareStatTwo.setTooltip(TTTwo);
+        lblCompareStatThree.setTooltip(TTThree);
+        lblCompareStatFour.setTooltip(TTFour);
+        lblCompareStatFive.setTooltip(TTFive);
+        lblCompareStatSix.setTooltip(TTSix);
+        lblCompareStatSeven.setTooltip(TTSeven);
+        lblCompareStatEight.setTooltip(TTEight);
+        lblCompareStatNine.setTooltip(TTNine);
+        lblCompareStatTen.setTooltip(TTTen);
 
         DatabaseReader reader = new DatabaseReader(); //Creates a database reader
         Player[] pitch = reader.getStats("p"); //Reads through pitcher stats
