@@ -22,21 +22,25 @@ public class ExportCommand extends Command {
      * Default constructor for the export command
      */
     public ExportCommand() {
-        TableIterator insertion = new TableIterator();
-        JFileChooser j = new JFileChooser("C:"); //Stores the file into specified location
-        int r = j.showSaveDialog(null);
-        if (r == JFileChooser.APPROVE_OPTION) { //Export file using external library methods
-            insertion.exportFile(j.getSelectedFile().getAbsolutePath());
-        }
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION); //Creates an alert popup
-        alert.setTitle("File Export Attempt");
-        alert.setHeaderText("Success!"); //Notificastion of success
-        alert.setContentText("Files have been saved in the specified location\nThey are named Batting and Pitching stats respectively");
-        alert.showAndWait().ifPresent(rs -> {
-            if (rs == ButtonType.OK) {
-                System.out.println("Pressed OK.");
-            }
-        });
+        System.out.println("[DEBUG: Export Command] The subsystem's constructor is successful.");
     }
+
+    public void desktopIntegration() {
+            TableIterator insertion = new TableIterator();
+            JFileChooser j = new JFileChooser("C:"); //Stores the file into specified location
+            int r = j.showSaveDialog(null);
+            if (r == JFileChooser.APPROVE_OPTION) { //Export file using external library methods
+                insertion.exportFile(j.getSelectedFile().getAbsolutePath());
+            }
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION); //Creates an alert popup
+            alert.setTitle("File Export Attempt");
+            alert.setHeaderText("Success!"); //Notificastion of success
+            alert.setContentText("Files have been saved in the specified location\nThey are named Batting and Pitching stats respectively");
+            alert.showAndWait().ifPresent(rs -> {
+                if (rs == ButtonType.OK) {
+                    System.out.println("Pressed OK.");
+                }
+            });
+        }
 }

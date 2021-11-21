@@ -30,6 +30,7 @@ public class Command {
             help.desktopIntegration();  //Calls HelpCommand's desktop integration from the interface
         } else if (command.equals("export")) {   //Determines export command is called
             ExportCommand export = new ExportCommand(); //Initializes ExportCommand
+            export.desktopIntegration();
         }
     }
 }
