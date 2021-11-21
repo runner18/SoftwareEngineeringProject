@@ -1,27 +1,3 @@
-
-
-
-
-
-
-
-
-University Name: Ohio Northern University
-Department Name: ECCS
-Assignment Name: README Markdown Text
-Course Code and Title: ECCS 3421-01, Software Engineering
-Submitted to: Shahida Malik
-Submitted by: Thane Class, Alex Diehl, Alex Duke, and Stacey Walters
-Date of Submission: November 21, 2021
-Page number: 1 of 3
-
-
-
-
-
-
-
-
 # SoftwareEngineeringProject
 The objective of this project is to create a software system that will show and calculate the statistics of various softball teams. The program will accept manually input values as well as be able to read data from an external source, such as an API, locally stored file, or database. From there, the statistics manager will utilize the provided information for various people on the team’s roster (i.e. coach, hitter, and pitcher) to calculate the statistics of an overall team, individual player. The statistics manager will then pass off the data to the front end of the project, which would contain the user interface. The user interface will allow the user to easily modify the data entry and calculate the data efficiently.
 
