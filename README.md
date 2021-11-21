@@ -7,7 +7,7 @@ The objective of this project is to create a software system that will show and 
 git clone https://github.com/runner18/SoftwareEngineeringProject.git
 
 ## If Your IDE Has Git Integrated
-paste this link to clone the code: https://github.com/runner18/SoftwareEngineeringProject.git
+Paste this link to clone the code: https://github.com/runner18/SoftwareEngineeringProject.git
 
 # Using the Program
 This program has multiple features to assist with given softball data.
